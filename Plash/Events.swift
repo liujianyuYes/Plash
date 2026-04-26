@@ -7,25 +7,6 @@ extension AppState {
 			updateMenu()
 		}
 
-		webViewController.didLoadPublisher
-			.convertToResult()
-			.sink { [self] result in
-				switch result {
-				case .success:
-					// Set the persisted zoom level.
-					// This must be here as `webView.url` needs to have been set.
-					let zoomLevel = webViewController.webView.zoomLevelWrapper
-					if zoomLevel != 1 {
-						webViewController.webView.zoomLevelWrapper = zoomLevel
-					}
-
-					statusItemButton.toolTip = WebsitesController.shared.current?.tooltip
-				case .failure(let error):
-					webViewError = error
-				}
-			}
-			.store(in: &cancellables)
-
 		powerSourceWatcher?.didChangePublisher
 			.sink { [self] _ in
 				guard Defaults[.deactivateOnBattery] else {
@@ -46,6 +27,12 @@ extension AppState {
 			.sink { [self] in
 				isScreenLocked = $0
 				setEnabledStatus()
+			}
+			.store(in: &cancellables)
+
+		NSScreen.publisher
+			.sink { [self] in
+				syncDesktopSurfaces()
 			}
 			.store(in: &cancellables)
 
@@ -77,7 +64,7 @@ extension AppState {
 
 		Defaults.publisher(.opacity)
 			.sink { [self] change in
-				desktopWindow.alphaValue = isBrowsingMode ? 1 : change.newValue
+				setDesktopSurfacesOpacity(change.newValue)
 			}
 			.store(in: &cancellables)
 
@@ -89,7 +76,13 @@ extension AppState {
 
 		Defaults.publisher(.display, options: [])
 			.sink { [self] change in
-				desktopWindow.targetDisplay = change.newValue
+				syncDesktopSurfaces()
+			}
+			.store(in: &cancellables)
+
+		Defaults.publisher(.showOnAllDisplays)
+			.sink { [self] _ in
+				syncDesktopSurfaces()
 			}
 			.store(in: &cancellables)
 
@@ -101,13 +94,13 @@ extension AppState {
 
 		Defaults.publisher(.showOnAllSpaces)
 			.sink { [self] change in
-				desktopWindow.collectionBehavior.toggleExistence(.canJoinAllSpaces, shouldExist: change.newValue)
+				setDesktopSurfacesShowOnAllSpaces(change.newValue)
 			}
 			.store(in: &cancellables)
 
 		Defaults.publisher(.bringBrowsingModeToFront, options: [])
 			.sink { [self] _ in
-				desktopWindow.isInteractive = desktopWindow.isInteractive
+				refreshDesktopSurfaceWindowLevels()
 			}
 			.store(in: &cancellables)
 

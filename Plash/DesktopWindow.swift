@@ -5,6 +5,8 @@ final class DesktopWindow: NSWindow {
 	override var canBecomeKey: Bool { isInteractive }
 	override var acceptsFirstResponder: Bool { isInteractive }
 
+	private static let nonInteractiveLevel = NSWindow.Level.desktopIcon - 1
+
 	private var cancellables = Set<AnyCancellable>()
 
 	var targetDisplay: Display? {
@@ -20,10 +22,10 @@ final class DesktopWindow: NSWindow {
 				makeKeyAndOrderFront(self)
 				ignoresMouseEvents = false
 			} else {
-				level = .desktop
+				level = Self.nonInteractiveLevel
 				orderBack(self)
 
-				// Even though the window is on `.desktop` level, the user would be able to interact if they hide desktop icons.
+				// Even though the window ignores mouse events, this prevents accidental interaction if desktop icons are hidden.
 				ignoresMouseEvents = true
 			}
 		}
@@ -43,7 +45,7 @@ final class DesktopWindow: NSWindow {
 
 		self.isOpaque = false
 		self.backgroundColor = .clear
-		self.level = .desktop
+		self.level = Self.nonInteractiveLevel
 		self.isRestorable = false
 		self.canHide = false
 		self.displaysWhenScreenProfileChanges = true
@@ -71,7 +73,7 @@ final class DesktopWindow: NSWindow {
 
 	private func setFrame() {
 		// Ensure the screen still exists.
-		guard let screen = targetDisplay?.screen ?? .main else {
+		guard let screen = targetDisplay?.screen ?? .primary else {
 			return
 		}
 

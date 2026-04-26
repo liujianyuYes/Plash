@@ -23,6 +23,7 @@ extension Defaults.Keys {
 	static let opacity = Key<Double>("opacity", default: 1)
 	static let reloadInterval = Key<Double?>("reloadInterval")
 	static let display = Key<Display?>("display")
+	static let showOnAllDisplays = Key<Bool>("showOnAllDisplays", default: false)
 	static let deactivateOnBattery = Key<Bool>("deactivateOnBattery", default: false)
 	static let showOnAllSpaces = Key<Bool>("showOnAllSpaces", default: false)
 	static let bringBrowsingModeToFront = Key<Bool>("bringBrowsingModeToFront", default: false)
