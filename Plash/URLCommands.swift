@@ -1,6 +1,7 @@
 import Cocoa
 
 extension AppState {
+	/// 注册 `plash:` URL Scheme 命令监听。
 	func setUpURLCommands() {
 		SSEvents.appOpenURL
 			.sink { [self] in
@@ -9,6 +10,7 @@ extension AppState {
 			.store(in: &cancellables)
 	}
 
+	/// 解析并执行外部传入的 `plash:` 命令。
 	private func handleURLCommands(_ urlComponents: URLComponents) {
 		guard urlComponents.scheme == "plash" else {
 			return
@@ -17,6 +19,7 @@ extension AppState {
 		let command = urlComponents.path
 		let parameters = urlComponents.queryDictionary
 
+		/// 激活 App 并展示命令错误信息。
 		func showMessage(_ message: String) {
 			SSApp.forceActivate()
 			NSAlert.showModal(title: message)
@@ -29,7 +32,7 @@ extension AppState {
 				let url = URL(string: urlString, encodingInvalidCharacters: false),
 				url.isValid
 			else {
-				showMessage("Invalid URL for the “add” command.")
+				showMessage("“add” 命令的 URL 无效。")
 				return
 			}
 
@@ -45,7 +48,7 @@ extension AppState {
 		case "toggle-browsing-mode":
 			toggleBrowsingMode()
 		default:
-			showMessage("The command “\(command)” is not supported.")
+			showMessage("不支持命令“\(command)”。")
 		}
 	}
 }

@@ -1,0 +1,32 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/DesktopComponentsController.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "删除",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 395
+        }
+      },
+      {
+        "comment": "",
+        "key": "尺寸",
+        "location": {
+          "startingColumn": 8,
+          "startingLine": 501
+        }
+      },
+      {
+        "comment": "",
+        "key": "拖动以移动组件",
+        "location": {
+          "startingColumn": 9,
+          "startingLine": 483
+        }
+      }
+    ]
+  },
+  "version": 1
+}

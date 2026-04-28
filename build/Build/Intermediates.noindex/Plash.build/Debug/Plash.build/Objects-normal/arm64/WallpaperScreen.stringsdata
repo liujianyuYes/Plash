@@ -1,0 +1,208 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/WallpaperScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "显示器",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 88
+        }
+      },
+      {
+        "comment": "",
+        "key": "来源",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "视频",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 134
+        }
+      },
+      {
+        "comment": "",
+        "key": "播放",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 161
+        }
+      },
+      {
+        "comment": "",
+        "key": "图片",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 184
+        }
+      },
+      {
+        "comment": "",
+        "key": "轮播",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 211
+        }
+      },
+      {
+        "comment": "",
+        "key": "模式",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "当前显示器",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "来源",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 123
+        }
+      },
+      {
+        "comment": "",
+        "key": "未选择视频",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 140
+        }
+      },
+      {
+        "comment": "",
+        "key": "选择视频…",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "自动播放",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 162
+        }
+      },
+      {
+        "comment": "",
+        "key": "循环播放",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 163
+        }
+      },
+      {
+        "comment": "",
+        "key": "静音",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 164
+        }
+      },
+      {
+        "comment": "",
+        "key": "显示播放控件",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 165
+        }
+      },
+      {
+        "comment": "",
+        "key": "填充方式",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 173
+        }
+      },
+      {
+        "comment": "",
+        "key": "播放速度",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 171
+        }
+      },
+      {
+        "comment": "",
+        "key": "未选择图片",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 190
+        }
+      },
+      {
+        "comment": "",
+        "key": "选择图片…",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 185
+        }
+      },
+      {
+        "comment": "",
+        "key": "启用轮播",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 212
+        }
+      },
+      {
+        "comment": "",
+        "key": "切换间隔",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 213
+        }
+      },
+      {
+        "comment": "",
+        "key": "随机顺序",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 223
+        }
+      },
+      {
+        "comment": "",
+        "key": "模糊背景",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 224
+        }
+      },
+      {
+        "comment": "",
+        "key": "填充方式",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 225
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld 秒",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 219
+        }
+      }
+    ]
+  },
+  "version": 1
+}

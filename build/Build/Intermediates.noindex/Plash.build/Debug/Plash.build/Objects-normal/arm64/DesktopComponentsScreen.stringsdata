@@ -1,0 +1,24 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/DesktopComponentsScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "液态玻璃背景",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 27
+        }
+      },
+      {
+        "comment": "",
+        "key": "没有可用组件",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 45
+        }
+      }
+    ]
+  },
+  "version": 1
+}

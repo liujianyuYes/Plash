@@ -1,6 +1,8 @@
 import WebKit
 
+/// Plash 专用 WebView，扩展右键菜单、浏览模式标记和每站点缩放记忆。
 final class SSWebView: WKWebView {
+	/// 允许桌面窗口中的网页在第一次点击时接收鼠标事件。
 	override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
 
 	private var cancellables = Set<AnyCancellable>()
@@ -31,6 +33,7 @@ final class SSWebView: WKWebView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	/// 在系统右键菜单打开前裁剪不适合 Plash 场景的项目，并加入缩放与保存 URL 操作。
 	override func willOpenMenu(_ menu: NSMenu, with event: NSEvent) {
 		for menuItem in menu.items {
 			// Debug menu items
@@ -38,31 +41,27 @@ final class SSWebView: WKWebView {
 
 			if let identifier = MenuItemIdentifier(menuItem) {
 				if
-					identifier == .openImageInNewWindow,
-					menuItem.title == "Open Image in New Window"
+					identifier == .openImageInNewWindow
 				{
-					menuItem.title = "Open Image"
+					menuItem.title = "打开图片"
 				}
 
 				if
-					identifier == .openMediaInNewWindow,
-					menuItem.title == "Open Video in New Window"
+					identifier == .openMediaInNewWindow
 				{
-					menuItem.title = "Open Video"
+					menuItem.title = "打开视频"
 				}
 
 				if
-					identifier == .openFrameInNewWindow,
-					menuItem.title == "Open Frame in New Window"
+					identifier == .openFrameInNewWindow
 				{
-					menuItem.title = "Open Frame"
+					menuItem.title = "打开框架"
 				}
 
 				if
-					identifier == .openLinkInNewWindow,
-					menuItem.title == "Open Link in New Window"
+					identifier == .openLinkInNewWindow
 				{
-					menuItem.title = "Open Link"
+					menuItem.title = "打开链接"
 				}
 			}
 		}
@@ -77,15 +76,15 @@ final class SSWebView: WKWebView {
 
 		menu.addSeparator()
 
-		menu.addCallbackItem("Actual Size", isEnabled: pageZoom != 1) { [weak self] in
+		menu.addCallbackItem("实际大小", isEnabled: pageZoom != 1) { [weak self] in
 			self?.zoomLevelWrapper = 1
 		}
 
-		menu.addCallbackItem("Zoom In") { [weak self] in
+		menu.addCallbackItem("放大") { [weak self] in
 			self?.zoomLevelWrapper += 0.2
 		}
 
-		menu.addCallbackItem("Zoom Out") { [weak self] in
+		menu.addCallbackItem("缩小") { [weak self] in
 			self?.zoomLevelWrapper -= 0.2
 		}
 
@@ -96,13 +95,13 @@ final class SSWebView: WKWebView {
 			let url = url?.normalized(),
 			website.url.normalized() != url
 		{
-			let menuItem = menu.addCallbackItem("Update Website to Current") {
+			let menuItem = menu.addCallbackItem("将网站更新为当前页面") {
 				WebsitesController.shared.all = WebsitesController.shared.all.modifying(elementWithID: website.id) {
 					$0.url = url
 				}
 			}
 
-			menuItem.toolTip = "Updates the URL for the stored website in Plash to the current URL"
+			menuItem.toolTip = "将保存的网站 URL 更新为当前 URL"
 		}
 
 		menu.addSeparator()
@@ -113,7 +112,7 @@ final class SSWebView: WKWebView {
 		}
 
 		if Defaults[.hideMenuBarIcon] {
-			menu.addCallbackItem("Show Menu Bar Icon") {
+			menu.addCallbackItem("显示菜单栏图标") {
 				AppState.shared.handleMenuBarIcon()
 			}
 		}
@@ -122,6 +121,7 @@ final class SSWebView: WKWebView {
 		menu.addSeparator()
 	}
 
+	/// 按当前浏览模式状态给网页根元素添加或移除 CSS 类。
 	func toggleBrowsingModeClass() {
 		Task {
 			try? await callAsyncJavaScript(
@@ -136,6 +136,7 @@ final class SSWebView: WKWebView {
 }
 
 extension SSWebView {
+	/// 当前页面缩放级别在 Defaults 中使用的键。
 	private var zoomLevelDefaultsKey: Defaults.Key<Double?>? {
 		guard let url else {
 			return nil
@@ -151,6 +152,7 @@ extension SSWebView {
 		return .init("zoomLevel_\(keyPart)")
 	}
 
+	/// 当前页面持久化保存过的缩放级别。
 	var zoomLevelDefaultsValue: Double? {
 		guard
 			let zoomLevelDefaultsKey,
@@ -162,6 +164,7 @@ extension SSWebView {
 		return zoomLevel
 	}
 
+	/// 读写页面缩放级别，并按规范化 URL 记住用户设置。
 	var zoomLevelWrapper: Double {
 		get { zoomLevelDefaultsValue ?? pageZoom }
 		set {

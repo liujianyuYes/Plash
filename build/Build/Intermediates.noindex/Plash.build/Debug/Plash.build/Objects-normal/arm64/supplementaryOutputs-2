@@ -1,0 +1,23 @@
+{
+  "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift" : {
+    "const-values" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Intents.swiftconstvalues",
+    "dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Intents.d",
+    "diagnostics" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Intents.dia",
+    "object" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Intents.o",
+    "swift-dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Intents.swiftdeps"
+  },
+  "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Menus.swift" : {
+    "const-values" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Menus.swiftconstvalues",
+    "dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Menus.d",
+    "diagnostics" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Menus.dia",
+    "object" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Menus.o",
+    "swift-dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/Menus.swiftdeps"
+  },
+  "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/WebViewController.swift" : {
+    "const-values" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/WebViewController.swiftconstvalues",
+    "dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/WebViewController.d",
+    "diagnostics" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/WebViewController.dia",
+    "object" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/WebViewController.o",
+    "swift-dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/WebViewController.swiftdeps"
+  }
+}

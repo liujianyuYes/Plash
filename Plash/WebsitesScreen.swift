@@ -1,47 +1,52 @@
 import SwiftUI
 
+/// 网站管理窗口，展示、添加、编辑、删除和切换用户保存的网站。
 struct WebsitesScreen: View {
-	@Environment(\.requestReview) private var requestReview
+	/// 网站表单。
+	var body: some View {
+		Form {
+			WebsiteSettingsSections()
+		}
+		.formStyle(.grouped)
+		.frame(minWidth: 480, idealWidth: 520, maxWidth: .infinity, minHeight: 320, maxHeight: .infinity)
+		.windowMinimizeBehavior(.disabled)
+		.windowLevel(.floating)
+	}
+}
+
+/// 网站设置表单区域，用于独立网站页和壁纸页的网站来源。
+struct WebsiteSettingsSections: View {
 	@Default(.websites) private var websites
 //	@State private var selection: Website.ID? // We need two states as selection must be independent from actually opening the editing because of keyboard navigation and accessibility.
 	@State private var editedWebsite: Website.ID?
 	@State private var isAddWebsiteDialogPresented = false
-	@Namespace private var bottomScrollID
 
+	/// 网站列表、添加入口和编辑弹窗。
 	var body: some View {
-		Form {
-			List($websites, editActions: .all) { website in
-				RowView(
-					website: website,
-					selection: $editedWebsite
-				)
+		Section("网站") {
+			Button("添加网站…", systemImage: "plus") {
+				isAddWebsiteDialogPresented = true
 			}
-			.id(websites) // Workaround for the row not updating when changing the current active website. It's placed here and not on the row to prevent another issue where adding a new website makes it scroll outside the view. (macOS 15.3)
+
+			if websites.isEmpty {
+				Text("没有网站")
+					.foregroundStyle(.secondary)
+			} else {
+				ForEach($websites) { website in
+					RowView(
+						website: website,
+						selection: $editedWebsite
+					)
+				}
+				.id(websites) // Workaround for the row not updating when changing the current active website. It's placed here and not on the row to prevent another issue where adding a new website makes it scroll outside the view. (macOS 15.3)
+			}
+		}
 //			.onKeyboardShortcut(.defaultAction) {
 //				editedWebsite = selection
 //			}
-			.onChange(of: websites) { oldWebsites, websites in
-				// Check that a website was added.
-				guard websites.count > oldWebsites.count else {
-					return
-				}
-
-				withAnimation {
-//					scrollViewProxy.scrollTo(bottomScrollID, anchor: .top)
-				}
-			}
-			.overlay {
-				if websites.isEmpty {
-					Text("No Websites")
-						.emptyStateTextStyle()
-				}
-			}
-			.accessibilityAction(named: "Add website") {
-				isAddWebsiteDialogPresented = true
-			}
+		.accessibilityAction(named: "添加网站") {
+			isAddWebsiteDialogPresented = true
 		}
-		.formStyle(.grouped)
-		.frame(width: 480, height: 500)
 //		.onChange(of: editedWebsite) {
 //			selection = $0
 //		}
@@ -57,34 +62,15 @@ struct WebsitesScreen: View {
 				website: nil
 			)
 		}
-		.onNotification(.showAddWebsiteDialog) { _ in
-			isAddWebsiteDialogPresented = true
-		}
-		.onNotification(.showEditWebsiteDialog) { _ in
-			editedWebsite = WebsitesController.shared.current?.id
-		}
-		.toolbar {
-			Button("Add Website", systemImage: "plus") {
-				isAddWebsiteDialogPresented = true
-			}
-			.keyboardShortcut("+")
-		}
-		.onAppear {
-			SSApp.requestReviewAfterBeingCalledThisManyTimes([3, 50, 500], requestReview)
-		}
-		.windowMinimizeBehavior(.disabled)
-		.windowLevel(.floating)
 	}
 }
 
-#Preview {
-	WebsitesScreen()
-}
-
+/// 网站列表中的单行视图，负责当前状态展示和行级操作。
 private struct RowView: View {
 	@Binding var website: Website
 	@Binding var selection: Website.ID?
 
+	/// 网站标题、URL、图标和上下文菜单。
 	var body: some View {
 		HStack {
 			Label {
@@ -108,7 +94,7 @@ private struct RowView: View {
 		.padding(.horizontal, 8)
 		.help(website.tooltip)
 		.swipeActions(edge: .leading, allowsFullSwipe: true) {
-			Button("Set as Current") {
+			Button("设为当前") {
 				website.makeCurrent()
 			}
 			.disabled(website.isCurrent)
@@ -118,16 +104,16 @@ private struct RowView: View {
 			selection = website.id
 		}
 		.contextMenu { // Must come after `.onDoubleClick`.
-			Button("Set as Current") {
+			Button("设为当前") {
 				website.makeCurrent()
 			}
 			.disabled(website.isCurrent)
 			Divider()
-			Button("Edit…") {
+			Button("编辑…") {
 				selection = website.id
 			}
 			Divider()
-			Button("Delete", role: .destructive) {
+			Button("删除", role: .destructive) {
 				website.remove()
 			}
 		}
@@ -136,7 +122,7 @@ private struct RowView: View {
 		.if(website.isCurrent) {
 			$0.accessibilityAddTraits(.isSelected)
 		}
-		.accessibilityAction(named: "Edit") { // Doesn't show up in accessibility actions. (macOS 14.0)
+		.accessibilityAction(named: "编辑") { // Doesn't show up in accessibility actions. (macOS 14.0)
 			selection = website.id
 		}
 		.accessibilityRepresentation {
@@ -147,11 +133,13 @@ private struct RowView: View {
 	}
 }
 
+/// 网站图标视图，优先读取缓存，缺失时异步抓取。
 private struct IconView: View {
 	@State private var icon: Image?
 
 	let website: Website
 
+	/// 固定尺寸的网站图标或占位背景。
 	var body: some View {
 		VStack {
 			if let icon {
@@ -173,6 +161,7 @@ private struct IconView: View {
 		}
 	}
 
+	/// 从内存/磁盘缓存或网络获取网站图标。
 	private func fetchIcons() async -> NSImage? {
 		let cache = WebsitesController.shared.thumbnailCache
 

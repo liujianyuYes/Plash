@@ -2,6 +2,7 @@ import Cocoa
 @preconcurrency import Combine
 import WebKit
 
+/// 负责创建和管理网页视图，处理加载、导航、弹窗、下载和用户脚本注入。
 final class WebViewController: NSViewController {
 	private var popupWindow: NSWindow?
 	private let didLoadSubject = PassthroughSubject<Void, Error>()
@@ -14,6 +15,7 @@ final class WebViewController: NSViewController {
 
 	var response: HTTPURLResponse?
 
+	/// 根据当前网站和全局设置创建一套新的 WKWebView 配置。
 	private func createWebView() -> SSWebView {
 		let configuration = WKWebViewConfiguration()
 		configuration.allowsAirPlayForMediaPlayback = false
@@ -82,15 +84,18 @@ final class WebViewController: NSViewController {
 		return webView
 	}
 
+	/// 丢弃旧 WebView 并使用当前设置创建新实例。
 	func recreateWebView() {
 		webView = createWebView()
 		view = webView
 	}
 
+	/// 重新加载当前页面，保留 WebView 当前 URL。
 	func reloadCurrentPage() {
 		webView.reload()
 	}
 
+	/// 从源站重新加载当前页面，绕过可能的缓存副本。
 	func reloadCurrentPageFromOrigin() {
 		webView.reloadFromOrigin()
 	}
@@ -102,6 +107,7 @@ final class WebViewController: NSViewController {
 	}
 
 	// TODO: When Swift 6 is out, make this async and throw instead of using `onLoaded` handler.
+	/// 加载远程 URL 或本地网站目录。
 	func loadURL(_ url: URL) {
 		guard !url.isFileURL else {
 			_ = url.accessSandboxedURLByPromptingIfNeeded()
@@ -115,6 +121,7 @@ final class WebViewController: NSViewController {
 		webView.load(request)
 	}
 
+	/// 统一处理页面加载完成或失败后的浏览模式标记和错误发布。
 	private func internalOnLoaded(_ error: Error?) {
 		// TODO: A minor improvement would be to inject this on `DOMContentLoaded` using `WKScriptMessageHandler`.
 		webView.toggleBrowsingModeClass()
@@ -134,6 +141,7 @@ final class WebViewController: NSViewController {
 }
 
 extension WebViewController: WKNavigationDelegate {
+	/// 决定链接点击、下载和外部浏览器打开策略。
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
 		if
 			Defaults[.openExternalLinksInBrowser],
@@ -165,6 +173,7 @@ extension WebViewController: WKNavigationDelegate {
 		return .allow
 	}
 
+	/// 记录主文档响应，并把不可展示内容转为下载。
 	func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse) async -> WKNavigationResponsePolicy {
 		if
 			navigationResponse.isForMainFrame,
@@ -176,20 +185,24 @@ extension WebViewController: WKNavigationDelegate {
 		return navigationResponse.canShowMIMEType ? .allow : .download
 	}
 
+	/// 页面加载完成后对单图页面做适配，并发布加载成功事件。
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		webView.centerAndAspectFillImage(mimeType: response?.mimeType)
 
 		internalOnLoaded(nil)
 	}
 
+	/// 处理已开始导航后的加载失败。
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		internalOnLoaded(error)
 	}
 
+	/// 处理主文档提交前的加载失败。
 	func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
 		internalOnLoaded(error)
 	}
 
+	/// 处理认证挑战，按网站设置决定是否允许自签名证书。
 	func webView(_ webView: WKWebView, respondTo challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?) {
 		// We're intentionally allowing this in non-browsing mode as loading the URL would fail otherwise.
 		await webView.defaultAuthChallengeHandler(
@@ -198,16 +211,19 @@ extension WebViewController: WKNavigationDelegate {
 		)
 	}
 
+	/// 导航请求转为下载时绑定下载代理。
 	func webView(_ webView: WKWebView, navigationAction: WKNavigationAction, didBecome download: WKDownload) {
 		download.delegate = self
 	}
 
+	/// 响应内容转为下载时绑定下载代理。
 	func webView(_ webView: WKWebView, navigationResponse: WKNavigationResponse, didBecome download: WKDownload) {
 		download.delegate = self
 	}
 }
 
 extension WebViewController: WKUIDelegate {
+	/// 处理网页请求打开新窗口的场景，非浏览模式下回落到当前 WebView。
 	func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
 		guard
 			AppState.shared.isBrowsingMode,
@@ -257,6 +273,7 @@ extension WebViewController: WKUIDelegate {
 	}
 
 
+	/// 只在浏览模式下允许 JavaScript confirm 对话框。
 	func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo) async -> Bool {
 		guard AppState.shared.isBrowsingMode else {
 			return false
@@ -265,6 +282,7 @@ extension WebViewController: WKUIDelegate {
 		return await webView.defaultConfirmHandler(message: message)
 	}
 
+	/// 只在浏览模式下允许 JavaScript prompt 对话框。
 	func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo) async -> String? {
 		guard AppState.shared.isBrowsingMode else {
 			return nil
@@ -274,6 +292,7 @@ extension WebViewController: WKUIDelegate {
 	}
 
 	// swiftlint:disable:next discouraged_optional_collection
+	/// 只在浏览模式下允许网页打开文件选择面板。
 	func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters, initiatedByFrame frame: WKFrameInfo) async -> [URL]? {
 		guard AppState.shared.isBrowsingMode else {
 			return nil
@@ -282,6 +301,7 @@ extension WebViewController: WKUIDelegate {
 		return await webView.defaultUploadPanelHandler(parameters: parameters)
 	}
 
+	/// 关闭由网页创建的子窗口。
 	func webViewDidClose(_ webView: WKWebView) {
 		if webView.window == popupWindow {
 			popupWindow?.close()
@@ -291,12 +311,14 @@ extension WebViewController: WKUIDelegate {
 }
 
 extension WebViewController: WKDownloadDelegate {
+	/// 决定下载目标路径，并避免覆盖已有文件。
 	func download(_ download: WKDownload, decideDestinationUsing response: URLResponse, suggestedFilename: String) async -> URL? {
 		let url = URL.downloadsDirectory.appendingPathComponent(suggestedFilename).incrementalFilename()
 		currentDownloadFile = url
 		return url
 	}
 
+	/// 下载完成后在 Dock 中提示下载目录。
 	func downloadDidFinish(_ download: WKDownload) {
 		guard let currentDownloadFile else {
 			return
@@ -305,6 +327,7 @@ extension WebViewController: WKDownloadDelegate {
 		NSWorkspace.shared.bounceDownloadsFolderInDock(for: currentDownloadFile)
 	}
 
+	/// 下载失败时向用户展示错误。
 	func download(_ download: WKDownload, didFailWithError error: Error, resumeData: Data?) {
 		error.presentAsModal()
 	}

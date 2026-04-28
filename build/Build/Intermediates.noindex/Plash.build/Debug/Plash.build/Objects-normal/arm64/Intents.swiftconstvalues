@@ -1,0 +1,2671 @@
+[
+  {
+    "typeName": "Plash_Dev.AddWebsiteIntent",
+    "mangledTypeName": "9Plash_Dev16AddWebsiteIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 5,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.ReturnsValue<Plash_Dev.WebsiteAppEntity>",
+        "substitutedMangledTypeName": "9Plash_Dev16AddWebsiteIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ReturnsValue"
+        ],
+        "opaqueTypeSameTypeRequirements": [
+          {
+            "typeAliasName": "AppIntents.IntentResult.Value",
+            "substitutedTypeName": "Plash_Dev.WebsiteAppEntity",
+            "substitutedMangledTypeName": "9Plash_Dev16WebsiteAppEntityV"
+          }
+        ]
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "9Plash_Dev16AddWebsiteIntentV16parameterSummaryQrvpZQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "_url",
+        "type": "AppIntents.IntentParameter<Foundation.URL>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 18,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Foundation.URL>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网址"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Foundation.URL>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        }
+      },
+      {
+        "label": "_title",
+        "type": "AppIntents.IntentParameter<Swift.Optional<Swift.String>>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 21,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Optional<Swift.String>>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "标题"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.String>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputOptions",
+              "type": "Swift.Optional<Swift.String.IntentInputOptions>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        }
+      },
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 6,
+        "valueKind": "RawLiteral",
+        "value": "添加网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 8,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentDescription",
+          "arguments": [
+            {
+              "label": "",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "将网站添加到 Plash。\n\n返回添加的网站。"
+            },
+            {
+              "label": "categoryName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "searchKeywords",
+              "type": "Swift.Array<Foundation.LocalizedStringResource>",
+              "valueKind": "Runtime"
+            },
+            {
+              "label": "resultValueName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "RawLiteral",
+              "value": "添加的网站"
+            }
+          ]
+        }
+      },
+      {
+        "label": "url",
+        "type": "Foundation.URL",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 18,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Foundation.URL>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网址"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Foundation.URL>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.IntentParameter",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 17,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "网址"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$url",
+        "type": "AppIntents.IntentParameter<Foundation.URL>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 18,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "title",
+        "type": "Swift.Optional<Swift.String>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 21,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Optional<Swift.String>>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "标题"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.String>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputOptions",
+              "type": "Swift.Optional<Swift.String.IntentInputOptions>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.IntentParameter",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 20,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "标题"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$title",
+        "type": "AppIntents.IntentParameter<Swift.Optional<Swift.String>>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 21,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "parameterSummary",
+        "type": "some AppIntents.ParameterSummary",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 23,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameterSummary<Plash_Dev.AddWebsiteIntent>",
+          "arguments": [
+            {
+              "label": "",
+              "type": "AppIntents.ParameterSummaryString<Plash_Dev.AddWebsiteIntent>",
+              "valueKind": "InterpolatedStringLiteral",
+              "value": {
+                "segments": [
+                  {
+                    "valueKind": "RawLiteral",
+                    "value": "将 "
+                  },
+                  {
+                    "valueKind": "KeyPath",
+                    "value": {
+                      "path": "$url",
+                      "rootType": "Plash_Dev.AddWebsiteIntent",
+                      "components": [
+                        {
+                          "label": "$url",
+                          "type": "AppIntents.IntentParameter<Foundation.URL>"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "valueKind": "RawLiteral",
+                    "value": " 添加到 Plash"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "table",
+              "type": "Swift.Optional<Swift.String>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "",
+              "type": "() -> Swift.Array<Swift.PartialKeyPath<Plash_Dev.AddWebsiteIntent>>",
+              "valueKind": "Builder",
+              "value": {
+                "type": "",
+                "members": [
+                  {
+                    "kind": "buildExpression",
+                    "element": {
+                      "valueKind": "KeyPath",
+                      "value": {
+                        "path": "$title",
+                        "rootType": "Plash_Dev.AddWebsiteIntent",
+                        "components": [
+                          {
+                            "label": "$title",
+                            "type": "AppIntents.IntentParameter<Swift.Optional<Swift.String>>"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.RemoveWebsitesIntent",
+    "mangledTypeName": "9Plash_Dev20RemoveWebsitesIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 39,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev20RemoveWebsitesIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "9Plash_Dev20RemoveWebsitesIntentV16parameterSummaryQrvpZQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "_websites",
+        "type": "AppIntents.IntentParameter<Swift.Array<Plash_Dev.WebsiteAppEntity>>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 45,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Array<Plash_Dev.WebsiteAppEntity>>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网站"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.Array<Plash_Dev.WebsiteAppEntity>>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestDisambiguationDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        }
+      },
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 40,
+        "valueKind": "RawLiteral",
+        "value": "删除网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 42,
+        "valueKind": "RawLiteral",
+        "value": "从 Plash 删除指定网站。"
+      },
+      {
+        "label": "websites",
+        "type": "Swift.Array<Plash_Dev.WebsiteAppEntity>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 45,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Array<Plash_Dev.WebsiteAppEntity>>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网站"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.Array<Plash_Dev.WebsiteAppEntity>>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestDisambiguationDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.IntentParameter",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 44,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "网站"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$websites",
+        "type": "AppIntents.IntentParameter<Swift.Array<Plash_Dev.WebsiteAppEntity>>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 45,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "parameterSummary",
+        "type": "some AppIntents.ParameterSummary",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 47,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameterSummary<Plash_Dev.RemoveWebsitesIntent>",
+          "arguments": [
+            {
+              "label": "",
+              "type": "AppIntents.ParameterSummaryString<Plash_Dev.RemoveWebsitesIntent>",
+              "valueKind": "InterpolatedStringLiteral",
+              "value": {
+                "segments": [
+                  {
+                    "valueKind": "RawLiteral",
+                    "value": "删除网站 "
+                  },
+                  {
+                    "valueKind": "KeyPath",
+                    "value": {
+                      "path": "$websites",
+                      "rootType": "Plash_Dev.RemoveWebsitesIntent",
+                      "components": [
+                        {
+                          "label": "$websites",
+                          "type": "AppIntents.IntentParameter<Swift.Array<Plash_Dev.WebsiteAppEntity>>"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "valueKind": "RawLiteral",
+                    "value": ""
+                  }
+                ]
+              }
+            },
+            {
+              "label": "table",
+              "type": "Swift.Optional<Swift.String>",
+              "valueKind": "NilLiteral"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.SetEnabledStateIntent",
+    "mangledTypeName": "9Plash_Dev21SetEnabledStateIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 69,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev21SetEnabledStateIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "9Plash_Dev21SetEnabledStateIntentV16parameterSummaryQrvpZQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "_shouldToggle",
+        "type": "AppIntents.IntentParameter<Swift.Bool>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 78,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Bool>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "操作"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.Bool>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "displayName",
+              "type": "Swift.Optional<Swift.Bool.IntentDisplayName>",
+              "valueKind": "InitCall",
+              "value": {
+                "type": "Swift.Bool.IntentDisplayName",
+                "arguments": [
+                  {
+                    "label": "true",
+                    "type": "Foundation.LocalizedStringResource",
+                    "valueKind": "RawLiteral",
+                    "value": "切换"
+                  },
+                  {
+                    "label": "false",
+                    "type": "Foundation.LocalizedStringResource",
+                    "valueKind": "RawLiteral",
+                    "value": "设置"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        }
+      },
+      {
+        "label": "_isEnabled",
+        "type": "AppIntents.IntentParameter<Swift.Bool>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 81,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Bool>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "已启用"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.Bool>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "displayName",
+              "type": "Swift.Optional<Swift.Bool.IntentDisplayName>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        }
+      },
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 70,
+        "valueKind": "RawLiteral",
+        "value": "设置启用状态"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 72,
+        "valueKind": "RawLiteral",
+        "value": "设置 Plash 的启用状态。"
+      },
+      {
+        "label": "shouldToggle",
+        "type": "Swift.Bool",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 78,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Bool>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "操作"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.Bool>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "displayName",
+              "type": "Swift.Optional<Swift.Bool.IntentDisplayName>",
+              "valueKind": "InitCall",
+              "value": {
+                "type": "Swift.Bool.IntentDisplayName",
+                "arguments": [
+                  {
+                    "label": "true",
+                    "type": "Foundation.LocalizedStringResource",
+                    "valueKind": "RawLiteral",
+                    "value": "切换"
+                  },
+                  {
+                    "label": "false",
+                    "type": "Foundation.LocalizedStringResource",
+                    "valueKind": "RawLiteral",
+                    "value": "设置"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.IntentParameter",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 74,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "操作"
+              },
+              {
+                "label": "displayName",
+                "type": "Swift.Optional<Swift.Bool.IntentDisplayName>",
+                "valueKind": "InitCall",
+                "value": {
+                  "type": "Swift.Bool.IntentDisplayName",
+                  "arguments": [
+                    {
+                      "label": "true",
+                      "type": "Foundation.LocalizedStringResource",
+                      "valueKind": "RawLiteral",
+                      "value": "切换"
+                    },
+                    {
+                      "label": "false",
+                      "type": "Foundation.LocalizedStringResource",
+                      "valueKind": "RawLiteral",
+                      "value": "设置"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$shouldToggle",
+        "type": "AppIntents.IntentParameter<Swift.Bool>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 78,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "isEnabled",
+        "type": "Swift.Bool",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 81,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Swift.Bool>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "已启用"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Swift.Bool>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "displayName",
+              "type": "Swift.Optional<Swift.Bool.IntentDisplayName>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.IntentParameter",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 80,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "已启用"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$isEnabled",
+        "type": "AppIntents.IntentParameter<Swift.Bool>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 81,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "parameterSummary",
+        "type": "some AppIntents.ParameterSummary",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 83,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.ParameterSummaryWhenCondition<Plash_Dev.SetEnabledStateIntent, AppIntents.IntentParameterSummary<Plash_Dev.SetEnabledStateIntent>, AppIntents.IntentParameterSummary<Plash_Dev.SetEnabledStateIntent>>",
+          "arguments": [
+            {
+              "label": "",
+              "type": "Swift.KeyPath<Plash_Dev.SetEnabledStateIntent, AppIntents.IntentParameter<Swift.Bool>>",
+              "valueKind": "KeyPath",
+              "value": {
+                "path": "$shouldToggle",
+                "rootType": "Plash_Dev.SetEnabledStateIntent",
+                "components": [
+                  {
+                    "label": "$shouldToggle",
+                    "type": "AppIntents.IntentParameter<Swift.Bool>"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "",
+              "type": "AppIntents.EquatableComparisonOperator",
+              "valueKind": "Enum",
+              "value": {
+                "name": "equalTo"
+              }
+            },
+            {
+              "label": "",
+              "type": "Swift.Bool",
+              "valueKind": "RawLiteral",
+              "value": "true"
+            },
+            {
+              "label": "",
+              "type": "() -> AppIntents.IntentParameterSummary<Plash_Dev.SetEnabledStateIntent>",
+              "valueKind": "Builder",
+              "value": {
+                "type": "",
+                "members": [
+                  {
+                    "kind": "buildExpression",
+                    "element": {
+                      "valueKind": "InitCall",
+                      "value": {
+                        "type": "AppIntents.IntentParameterSummary<Plash_Dev.SetEnabledStateIntent>",
+                        "arguments": [
+                          {
+                            "label": "",
+                            "type": "AppIntents.ParameterSummaryString<Plash_Dev.SetEnabledStateIntent>",
+                            "valueKind": "InterpolatedStringLiteral",
+                            "value": {
+                              "segments": [
+                                {
+                                  "valueKind": "RawLiteral",
+                                  "value": ""
+                                },
+                                {
+                                  "valueKind": "KeyPath",
+                                  "value": {
+                                    "path": "$shouldToggle",
+                                    "rootType": "Plash_Dev.SetEnabledStateIntent",
+                                    "components": [
+                                      {
+                                        "label": "$shouldToggle",
+                                        "type": "AppIntents.IntentParameter<Swift.Bool>"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "valueKind": "RawLiteral",
+                                  "value": " Plash"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "label": "table",
+                            "type": "Swift.Optional<Swift.String>",
+                            "valueKind": "NilLiteral"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "otherwise",
+              "type": "() -> AppIntents.IntentParameterSummary<Plash_Dev.SetEnabledStateIntent>",
+              "valueKind": "Builder",
+              "value": {
+                "type": "",
+                "members": [
+                  {
+                    "kind": "buildExpression",
+                    "element": {
+                      "valueKind": "InitCall",
+                      "value": {
+                        "type": "AppIntents.IntentParameterSummary<Plash_Dev.SetEnabledStateIntent>",
+                        "arguments": [
+                          {
+                            "label": "",
+                            "type": "AppIntents.ParameterSummaryString<Plash_Dev.SetEnabledStateIntent>",
+                            "valueKind": "InterpolatedStringLiteral",
+                            "value": {
+                              "segments": [
+                                {
+                                  "valueKind": "RawLiteral",
+                                  "value": ""
+                                },
+                                {
+                                  "valueKind": "KeyPath",
+                                  "value": {
+                                    "path": "$shouldToggle",
+                                    "rootType": "Plash_Dev.SetEnabledStateIntent",
+                                    "components": [
+                                      {
+                                        "label": "$shouldToggle",
+                                        "type": "AppIntents.IntentParameter<Swift.Bool>"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "valueKind": "RawLiteral",
+                                  "value": " Plash "
+                                },
+                                {
+                                  "valueKind": "KeyPath",
+                                  "value": {
+                                    "path": "$isEnabled",
+                                    "rootType": "Plash_Dev.SetEnabledStateIntent",
+                                    "components": [
+                                      {
+                                        "label": "$isEnabled",
+                                        "type": "AppIntents.IntentParameter<Swift.Bool>"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "valueKind": "RawLiteral",
+                                  "value": ""
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "label": "table",
+                            "type": "Swift.Optional<Swift.String>",
+                            "valueKind": "NilLiteral"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.GetEnabledStateIntent",
+    "mangledTypeName": "9Plash_Dev21GetEnabledStateIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 107,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.ReturnsValue<Swift.Bool>",
+        "substitutedMangledTypeName": "9Plash_Dev21GetEnabledStateIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ReturnsValue"
+        ],
+        "opaqueTypeSameTypeRequirements": [
+          {
+            "typeAliasName": "AppIntents.IntentResult.Value",
+            "substitutedTypeName": "Swift.Bool",
+            "substitutedMangledTypeName": "Sb"
+          }
+        ]
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "9Plash_Dev21GetEnabledStateIntentV16parameterSummaryQrvpZQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 108,
+        "valueKind": "RawLiteral",
+        "value": "获取启用状态"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 110,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentDescription",
+          "arguments": [
+            {
+              "label": "",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "返回 Plash 当前是否已启用。"
+            },
+            {
+              "label": "categoryName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "searchKeywords",
+              "type": "Swift.Array<Foundation.LocalizedStringResource>",
+              "valueKind": "Runtime"
+            },
+            {
+              "label": "resultValueName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "RawLiteral",
+              "value": "启用状态"
+            }
+          ]
+        }
+      },
+      {
+        "label": "parameterSummary",
+        "type": "some AppIntents.ParameterSummary",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 115,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameterSummary<Plash_Dev.GetEnabledStateIntent>",
+          "arguments": [
+            {
+              "label": "",
+              "type": "AppIntents.ParameterSummaryString<Plash_Dev.GetEnabledStateIntent>",
+              "valueKind": "RawLiteral",
+              "value": "获取 Plash 当前启用状态"
+            },
+            {
+              "label": "table",
+              "type": "Swift.Optional<Swift.String>",
+              "valueKind": "NilLiteral"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.GetCurrentWebsiteIntent",
+    "mangledTypeName": "9Plash_Dev23GetCurrentWebsiteIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 127,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.ReturnsValue<Swift.Optional<Plash_Dev.WebsiteAppEntity>>",
+        "substitutedMangledTypeName": "9Plash_Dev23GetCurrentWebsiteIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ReturnsValue"
+        ],
+        "opaqueTypeSameTypeRequirements": [
+          {
+            "typeAliasName": "AppIntents.IntentResult.Value",
+            "substitutedTypeName": "Swift.Optional<Plash_Dev.WebsiteAppEntity>",
+            "substitutedMangledTypeName": "9Plash_Dev16WebsiteAppEntityVSg"
+          }
+        ]
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "10AppIntents0A6IntentPAAE16parameterSummaryQrvpZQOy9Plash_Dev017GetCurrentWebsiteC0V_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 128,
+        "valueKind": "RawLiteral",
+        "value": "获取当前网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 130,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentDescription",
+          "arguments": [
+            {
+              "label": "",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "返回 Plash 当前网站。"
+            },
+            {
+              "label": "categoryName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "searchKeywords",
+              "type": "Swift.Array<Foundation.LocalizedStringResource>",
+              "valueKind": "Runtime"
+            },
+            {
+              "label": "resultValueName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "RawLiteral",
+              "value": "当前网站"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.SetCurrentWebsiteIntent",
+    "mangledTypeName": "9Plash_Dev23SetCurrentWebsiteIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 144,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev23SetCurrentWebsiteIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "9Plash_Dev23SetCurrentWebsiteIntentV16parameterSummaryQrvpZQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "_website",
+        "type": "AppIntents.IntentParameter<Plash_Dev.WebsiteAppEntity>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 150,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Plash_Dev.WebsiteAppEntity>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网站"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Plash_Dev.WebsiteAppEntity>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestDisambiguationDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        }
+      },
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 145,
+        "valueKind": "RawLiteral",
+        "value": "设置当前网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 147,
+        "valueKind": "RawLiteral",
+        "value": "将 Plash 当前网站设置为指定网站。"
+      },
+      {
+        "label": "website",
+        "type": "Plash_Dev.WebsiteAppEntity",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 150,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameter<Plash_Dev.WebsiteAppEntity>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网站"
+            },
+            {
+              "label": "description",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "default",
+              "type": "Swift.Optional<Plash_Dev.WebsiteAppEntity>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestValueDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "requestDisambiguationDialog",
+              "type": "Swift.Optional<AppIntents.IntentDialog>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "inputConnectionBehavior",
+              "type": "AppIntents.InputConnectionBehavior",
+              "valueKind": "Runtime"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.IntentParameter",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 149,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "网站"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$website",
+        "type": "AppIntents.IntentParameter<Plash_Dev.WebsiteAppEntity>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 150,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "parameterSummary",
+        "type": "some AppIntents.ParameterSummary",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 152,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentParameterSummary<Plash_Dev.SetCurrentWebsiteIntent>",
+          "arguments": [
+            {
+              "label": "",
+              "type": "AppIntents.ParameterSummaryString<Plash_Dev.SetCurrentWebsiteIntent>",
+              "valueKind": "InterpolatedStringLiteral",
+              "value": {
+                "segments": [
+                  {
+                    "valueKind": "RawLiteral",
+                    "value": "将当前网站设为 "
+                  },
+                  {
+                    "valueKind": "KeyPath",
+                    "value": {
+                      "path": "$website",
+                      "rootType": "Plash_Dev.SetCurrentWebsiteIntent",
+                      "components": [
+                        {
+                          "label": "$website",
+                          "type": "AppIntents.IntentParameter<Plash_Dev.WebsiteAppEntity>"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "valueKind": "RawLiteral",
+                    "value": ""
+                  }
+                ]
+              }
+            },
+            {
+              "label": "table",
+              "type": "Swift.Optional<Swift.String>",
+              "valueKind": "NilLiteral"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.ReloadWebsiteIntent",
+    "mangledTypeName": "9Plash_Dev19ReloadWebsiteIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 166,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev19ReloadWebsiteIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "10AppIntents0A6IntentPAAE16parameterSummaryQrvpZQOy9Plash_Dev013ReloadWebsiteC0V_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 167,
+        "valueKind": "RawLiteral",
+        "value": "重新加载网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 169,
+        "valueKind": "RawLiteral",
+        "value": "重新加载 Plash 当前网站。"
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.NextWebsiteIntent",
+    "mangledTypeName": "9Plash_Dev17NextWebsiteIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 181,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev17NextWebsiteIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "10AppIntents0A6IntentPAAE16parameterSummaryQrvpZQOy9Plash_Dev011NextWebsiteC0V_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 182,
+        "valueKind": "RawLiteral",
+        "value": "切换到下一个网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 184,
+        "valueKind": "RawLiteral",
+        "value": "将 Plash 切换到列表中的下一个网站。"
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.PreviousWebsiteIntent",
+    "mangledTypeName": "9Plash_Dev21PreviousWebsiteIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 196,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev21PreviousWebsiteIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "10AppIntents0A6IntentPAAE16parameterSummaryQrvpZQOy9Plash_Dev015PreviousWebsiteC0V_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 197,
+        "valueKind": "RawLiteral",
+        "value": "切换到上一个网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 199,
+        "valueKind": "RawLiteral",
+        "value": "将 Plash 切换到列表中的上一个网站。"
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.RandomWebsiteIntent",
+    "mangledTypeName": "9Plash_Dev19RandomWebsiteIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 211,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev19RandomWebsiteIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "10AppIntents0A6IntentPAAE16parameterSummaryQrvpZQOy9Plash_Dev013RandomWebsiteC0V_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 212,
+        "valueKind": "RawLiteral",
+        "value": "切换到随机网站"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 214,
+        "valueKind": "RawLiteral",
+        "value": "将 Plash 切换到列表中的随机网站。"
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.ToggleBrowsingModeIntent",
+    "mangledTypeName": "9Plash_Dev24ToggleBrowsingModeIntentV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 226,
+    "conformances": [
+      "AppIntents.AppIntent",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.Sendable",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppIntent",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "PerformResult",
+        "substitutedTypeName": "some AppIntents.IntentResult",
+        "substitutedMangledTypeName": "9Plash_Dev24ToggleBrowsingModeIntentV7performQryYaKFQOy_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.IntentResult"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      },
+      {
+        "typeAliasName": "SummaryContent",
+        "substitutedTypeName": "some AppIntents.ParameterSummary",
+        "substitutedMangledTypeName": "10AppIntents0A6IntentPAAE16parameterSummaryQrvpZQOy9Plash_Dev018ToggleBrowsingModeC0V_Qo_",
+        "opaqueTypeProtocolRequirements": [
+          "AppIntents.ParameterSummary"
+        ],
+        "opaqueTypeSameTypeRequirements": []
+      }
+    ],
+    "properties": [
+      {
+        "label": "title",
+        "type": "Foundation.LocalizedStringResource",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 227,
+        "valueKind": "RawLiteral",
+        "value": "切换浏览模式"
+      },
+      {
+        "label": "description",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 229,
+        "valueKind": "RawLiteral",
+        "value": "切换 Plash 的“浏览模式”。"
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.WebsiteAppEntity",
+    "mangledTypeName": "9Plash_Dev16WebsiteAppEntityV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 241,
+    "conformances": [
+      "AppIntents.AppEntity",
+      "AppIntents.AppValue",
+      "AppIntents.DisplayRepresentable",
+      "Swift.Identifiable",
+      "AppIntents.PersistentlyIdentifiable",
+      "AppIntents.TypeDisplayRepresentable",
+      "AppIntents._IntentValue",
+      "Swift.Sendable",
+      "AppIntents.InstanceDisplayRepresentable",
+      "Swift.SendableMetatype",
+      "Foundation.CustomLocalizedStringResourceConvertible"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.AppEntity",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.AppValue",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.DisplayRepresentable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Identifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.TypeDisplayRepresentable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._IntentValue",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.InstanceDisplayRepresentable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Foundation.CustomLocalizedStringResourceConvertible",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "DefaultQuery",
+        "substitutedTypeName": "Plash_Dev.WebsiteAppEntity.Query",
+        "substitutedMangledTypeName": "9Plash_Dev16WebsiteAppEntityV5QueryV"
+      },
+      {
+        "typeAliasName": "ID",
+        "substitutedTypeName": "Foundation.UUID",
+        "substitutedMangledTypeName": "10Foundation4UUIDV"
+      },
+      {
+        "typeAliasName": "ValueType",
+        "substitutedTypeName": "Plash_Dev.WebsiteAppEntity",
+        "substitutedMangledTypeName": "9Plash_Dev16WebsiteAppEntityV"
+      },
+      {
+        "typeAliasName": "UnwrappedType",
+        "substitutedTypeName": "Plash_Dev.WebsiteAppEntity",
+        "substitutedMangledTypeName": "9Plash_Dev16WebsiteAppEntityV"
+      },
+      {
+        "typeAliasName": "Specification",
+        "substitutedTypeName": "AppIntents.EmptyResolverSpecification<Plash_Dev.WebsiteAppEntity>",
+        "substitutedMangledTypeName": "10AppIntents26EmptyResolverSpecificationVy9Plash_Dev07WebsiteA6EntityVG"
+      }
+    ],
+    "properties": [
+      {
+        "label": "id",
+        "type": "Foundation.UUID",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 246,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "_title",
+        "type": "AppIntents.EntityProperty<Swift.String>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 249,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Swift.String>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "标题"
+            }
+          ]
+        }
+      },
+      {
+        "label": "_url",
+        "type": "AppIntents.EntityProperty<Foundation.URL>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 252,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Foundation.URL>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网址"
+            }
+          ]
+        }
+      },
+      {
+        "label": "_urlHost",
+        "type": "AppIntents.EntityProperty<Swift.String>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 255,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Swift.String>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网址主机"
+            }
+          ]
+        }
+      },
+      {
+        "label": "_isCurrent",
+        "type": "AppIntents.EntityProperty<Swift.Bool>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 258,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Swift.Bool>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "当前使用"
+            }
+          ]
+        }
+      },
+      {
+        "label": "typeDisplayRepresentation",
+        "type": "AppIntents.TypeDisplayRepresentation",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 242,
+        "valueKind": "RawLiteral",
+        "value": "网站"
+      },
+      {
+        "label": "defaultQuery",
+        "type": "Plash_Dev.WebsiteAppEntity.Query",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 244,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "Plash_Dev.WebsiteAppEntity.Query",
+          "arguments": []
+        }
+      },
+      {
+        "label": "title",
+        "type": "Swift.String",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 249,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Swift.String>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "标题"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.EntityProperty",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 248,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "标题"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$title",
+        "type": "AppIntents.EntityProperty<Swift.String>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 249,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "url",
+        "type": "Foundation.URL",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 252,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Foundation.URL>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网址"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.EntityProperty",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 251,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "网址"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$url",
+        "type": "AppIntents.EntityProperty<Foundation.URL>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 252,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "urlHost",
+        "type": "Swift.String",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 255,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Swift.String>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "网址主机"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.EntityProperty",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 254,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "网址主机"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$urlHost",
+        "type": "AppIntents.EntityProperty<Swift.String>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 255,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "isCurrent",
+        "type": "Swift.Bool",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 258,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.EntityProperty<Swift.Bool>",
+          "arguments": [
+            {
+              "label": "title",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "当前使用"
+            }
+          ]
+        },
+        "propertyWrappers": [
+          {
+            "type": "AppIntents.EntityProperty",
+            "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+            "line": 257,
+            "arguments": [
+              {
+                "label": "title",
+                "type": "Foundation.LocalizedStringResource",
+                "valueKind": "RawLiteral",
+                "value": "当前使用"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "$isCurrent",
+        "type": "AppIntents.EntityProperty<Swift.Bool>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 258,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "displayRepresentation",
+        "type": "AppIntents.DisplayRepresentation",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 269,
+        "valueKind": "Runtime"
+      },
+      {
+        "label": "toNative",
+        "type": "Swift.Optional<Plash_Dev.Website>",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "false",
+        "isComputed": "true",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 283,
+        "valueKind": "Runtime"
+      }
+    ]
+  },
+  {
+    "typeName": "Plash_Dev.WebsiteAppEntity.Query",
+    "mangledTypeName": "9Plash_Dev16WebsiteAppEntityV5QueryV",
+    "kind": "struct",
+    "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+    "line": 290,
+    "conformances": [
+      "AppIntents.EnumerableEntityQuery",
+      "AppIntents.EntityStringQuery",
+      "AppIntents.EntityQuery",
+      "AppIntents.DynamicOptionsProvider",
+      "AppIntents.PersistentlyIdentifiable",
+      "Swift.Sendable",
+      "AppIntents._SupportsAppDependencies",
+      "Swift.SendableMetatype",
+      "Swift.BitwiseCopyable"
+    ],
+    "allConformances": [
+      {
+        "protocolName": "AppIntents.EnumerableEntityQuery",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.EntityStringQuery",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.EntityQuery",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.DynamicOptionsProvider",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents.PersistentlyIdentifiable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.Sendable",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "AppIntents._SupportsAppDependencies",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.SendableMetatype",
+        "conformanceDefiningModule": "Plash_Dev"
+      },
+      {
+        "protocolName": "Swift.BitwiseCopyable",
+        "conformanceDefiningModule": "Plash_Dev"
+      }
+    ],
+    "associatedTypeAliases": [
+      {
+        "typeAliasName": "Entity",
+        "substitutedTypeName": "Plash_Dev.WebsiteAppEntity",
+        "substitutedMangledTypeName": "9Plash_Dev16WebsiteAppEntityV"
+      },
+      {
+        "typeAliasName": "Result",
+        "substitutedTypeName": "Swift.Array<Plash_Dev.WebsiteAppEntity>",
+        "substitutedMangledTypeName": "Say9Plash_Dev16WebsiteAppEntityVG"
+      },
+      {
+        "typeAliasName": "Result",
+        "substitutedTypeName": "Swift.Array<Plash_Dev.WebsiteAppEntity>",
+        "substitutedMangledTypeName": "Say9Plash_Dev16WebsiteAppEntityVG"
+      },
+      {
+        "typeAliasName": "DefaultValue",
+        "substitutedTypeName": "Plash_Dev.WebsiteAppEntity",
+        "substitutedMangledTypeName": "9Plash_Dev16WebsiteAppEntityV"
+      }
+    ],
+    "properties": [
+      {
+        "label": "findIntentDescription",
+        "type": "AppIntents.IntentDescription",
+        "mangledTypeName": "n/a - deprecated",
+        "isStatic": "true",
+        "isComputed": "false",
+        "file": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+        "line": 291,
+        "valueKind": "InitCall",
+        "value": {
+          "type": "AppIntents.IntentDescription",
+          "arguments": [
+            {
+              "label": "",
+              "type": "Foundation.LocalizedStringResource",
+              "valueKind": "RawLiteral",
+              "value": "返回 Plash 中的网站。"
+            },
+            {
+              "label": "categoryName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "NilLiteral"
+            },
+            {
+              "label": "searchKeywords",
+              "type": "Swift.Array<Foundation.LocalizedStringResource>",
+              "valueKind": "Runtime"
+            },
+            {
+              "label": "resultValueName",
+              "type": "Swift.Optional<Foundation.LocalizedStringResource>",
+              "valueKind": "RawLiteral",
+              "value": "网站"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

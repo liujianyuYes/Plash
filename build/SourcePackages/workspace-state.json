@@ -1,0 +1,137 @@
+{
+  "object" : {
+    "artifacts" : [
+      {
+        "kind" : {
+          "xcframework" : {
+
+          }
+        },
+        "packageRef" : {
+          "identity" : "sentry-cocoa",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/getsentry/sentry-cocoa",
+          "name" : "sentry-cocoa"
+        },
+        "path" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/SourcePackages/artifacts/sentry-cocoa/Sentry-Dynamic/Sentry-Dynamic.xcframework",
+        "source" : {
+          "checksum" : "e85968c3b8abf5bdbb0eb27808b19b9c2204632c369f60a866b20d8bc9ce6935",
+          "type" : "remote",
+          "url" : "https://github.com/getsentry/sentry-cocoa/releases/download/8.49.1/Sentry-Dynamic.xcframework.zip"
+        },
+        "targetName" : "Sentry-Dynamic"
+      },
+      {
+        "kind" : {
+          "xcframework" : {
+
+          }
+        },
+        "packageRef" : {
+          "identity" : "sentry-cocoa",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/getsentry/sentry-cocoa",
+          "name" : "sentry-cocoa"
+        },
+        "path" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/SourcePackages/artifacts/sentry-cocoa/Sentry/Sentry.xcframework",
+        "source" : {
+          "checksum" : "05ca333d2022c1fb17c08ce8b4c845bda56b8b9a14d9e58dad0be4d402b2df36",
+          "type" : "remote",
+          "url" : "https://github.com/getsentry/sentry-cocoa/releases/download/8.49.1/Sentry.xcframework.zip"
+        },
+        "targetName" : "Sentry"
+      }
+    ],
+    "dependencies" : [
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "defaults",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/sindresorhus/Defaults",
+          "name" : "Defaults"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "00c82eff4550c87cf9c547d7e5493a6a97837061",
+            "version" : "9.0.3"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "Defaults"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "keyboardshortcuts",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/sindresorhus/KeyboardShortcuts",
+          "name" : "KeyboardShortcuts"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "045cf174010beb335fa1d2567d18c057b8787165",
+            "version" : "2.3.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "KeyboardShortcuts"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "launchatlogin-modern",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/sindresorhus/LaunchAtLogin-Modern",
+          "name" : "LaunchAtLogin-Modern"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "a04ec1c363be3627734f6dad757d82f5d4fa8fcc",
+            "version" : "1.1.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "LaunchAtLogin-Modern"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "sentry-cocoa",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/getsentry/sentry-cocoa",
+          "name" : "sentry-cocoa"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "dd30b39839f28a9c3cb88ac9cb27cc0eca33e661",
+            "version" : "8.49.1"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "sentry-cocoa"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "swift-syntax",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/swiftlang/swift-syntax",
+          "name" : "swift-syntax"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
+            "version" : "601.0.1"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "swift-syntax"
+      }
+    ],
+    "prebuilts" : [
+
+    ]
+  },
+  "version" : 7
+}

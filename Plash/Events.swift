@@ -2,6 +2,7 @@ import Cocoa
 import KeyboardShortcuts
 
 extension AppState {
+	/// 绑定菜单刷新、系统事件、设置变更和全局快捷键。
 	func setUpEvents() {
 		menu.onUpdate = { [self] in
 			updateMenu()
@@ -49,6 +50,21 @@ extension AppState {
 			}
 			.store(in: &cancellables)
 
+		Defaults.publisher(.desktopComponents, options: [])
+			.receive(on: DispatchQueue.main)
+			.sink { [self] _ in
+				syncDesktopComponentWindows()
+			}
+			.store(in: &cancellables)
+
+		Defaults.publisher(.wallpaperSettings, options: [])
+			.receive(on: DispatchQueue.main)
+			.sink { [self] _ in
+				resetTimer()
+				reloadWallpaper()
+			}
+			.store(in: &cancellables)
+
 		Defaults.publisher(.isBrowsingMode)
 			.receive(on: DispatchQueue.main)
 			.sink { [self] change in
@@ -59,6 +75,12 @@ extension AppState {
 		Defaults.publisher(.hideMenuBarIcon)
 			.sink { [self] _ in
 				handleMenuBarIcon()
+			}
+			.store(in: &cancellables)
+
+		Defaults.publisher(.showFloatingSettingsButton)
+			.sink { [self] _ in
+				updateDesktopSettingsButtons()
 			}
 			.store(in: &cancellables)
 

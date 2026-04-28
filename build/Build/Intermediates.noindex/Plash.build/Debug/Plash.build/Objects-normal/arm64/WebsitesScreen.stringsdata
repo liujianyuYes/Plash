@@ -1,0 +1,80 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/WebsitesScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "网站",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "添加网站",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "没有网站",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 32
+        }
+      },
+      {
+        "comment": "",
+        "key": "添加网站…",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 27
+        }
+      },
+      {
+        "comment": "",
+        "key": "编辑",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "设为当前",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 97
+        }
+      },
+      {
+        "comment": "",
+        "key": "设为当前",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 107
+        }
+      },
+      {
+        "comment": "",
+        "key": "编辑…",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "删除",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 116
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,64 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/App.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Plash",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Plash",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 109
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 156
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 171
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "待实现",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 187
+        }
+      }
+    ]
+  },
+  "version": 1
+}

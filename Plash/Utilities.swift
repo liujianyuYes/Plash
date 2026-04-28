@@ -17,6 +17,8 @@ typealias Defaults = _Defaults
 typealias Default = _Default
 typealias AnyCancellable = Combine.AnyCancellable
 
+/// 本文件集中放置跨页面复用的 AppKit、SwiftUI、WebKit 和数据工具。
+
 // TODO: Check if any of these can be removed when targeting macOS 15.
 extension NSImage: @retroactive @unchecked Sendable {}
 extension NSItemProvider: @retroactive @unchecked Sendable {}
@@ -42,6 +44,7 @@ func with<T, E>(_ item: T, update: (inout T) throws(E) -> Void) throws(E) -> T {
 }
 
 
+/// 在主线程延迟执行闭包。
 func delay(_ duration: Duration, closure: @escaping () -> Void) {
 	DispatchQueue.main.asyncAfter(deadline: .now() + duration.toTimeInterval, execute: closure)
 }
@@ -76,11 +79,13 @@ extension NSWindow.Level {
 }
 
 
+/// 自动在打开前刷新内容的菜单。
 final class SSMenu: NSMenu, NSMenuDelegate {
 	var onUpdate: (() -> Void)?
 
 	private(set) var isOpen = false
 
+	/// 创建菜单并关闭系统自动启用逻辑，改由业务代码控制。
 	override init(title: String) {
 		super.init(title: title)
 		self.delegate = self
@@ -92,20 +97,24 @@ final class SSMenu: NSMenu, NSMenuDelegate {
 		fatalError(because: .notYetImplemented)
 	}
 
+	/// 记录菜单已打开。
 	func menuWillOpen(_ menu: NSMenu) {
 		isOpen = true
 	}
 
+	/// 记录菜单已关闭。
 	func menuDidClose(_ menu: NSMenu) {
 		isOpen = false
 	}
 
+	/// 在菜单需要显示前通知调用方重建内容。
 	func menuNeedsUpdate(_ menu: NSMenu) {
 		onUpdate?()
 	}
 }
 
 
+/// 带文本原因的 `fatalError` 包装，便于统一标记不可达路径。
 struct FatalReason: CustomStringConvertible {
 	static let unreachable = Self("Should never be reached during execution.")
 	static let notYetImplemented = Self("Not yet implemented.")
@@ -114,6 +123,7 @@ struct FatalReason: CustomStringConvertible {
 
 	let reason: String
 
+	/// 保存触发 fatal error 的原因。
 	init(_ reason: String) {
 		self.reason = reason
 	}
@@ -121,6 +131,7 @@ struct FatalReason: CustomStringConvertible {
 	var description: String { reason }
 }
 
+/// 使用结构化原因触发 Swift fatal error。
 func fatalError(
 	because reason: FatalReason,
 	function: StaticString = #function,
@@ -131,15 +142,18 @@ func fatalError(
 }
 
 
+/// 使用闭包作为 action 的菜单项。
 final class CallbackMenuItem: NSMenuItem {
 	private static var validateCallback: ((NSMenuItem) -> Bool)?
 
+	/// 设置全局菜单项校验回调。
 	static func validate(_ callback: @escaping (NSMenuItem) -> Bool) {
 		validateCallback = callback
 	}
 
 	private let callback: () -> Void
 
+	/// 创建一个由闭包驱动的菜单项。
 	init(
 		_ title: String,
 		key: String = "",
@@ -166,6 +180,7 @@ final class CallbackMenuItem: NSMenuItem {
 		fatalError(because: .notYetImplemented)
 	}
 
+	/// 响应菜单点击并执行闭包。
 	@objc
 	private func action(_ sender: NSMenuItem) {
 		callback()
@@ -173,6 +188,7 @@ final class CallbackMenuItem: NSMenuItem {
 }
 
 extension CallbackMenuItem: NSMenuItemValidation {
+	/// 使用全局校验回调决定菜单项是否可用。
 	func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
 		Self.validateCallback?(menuItem) ?? true
 	}
@@ -345,41 +361,8 @@ extension NSMenu {
 	@MainActor
 	@discardableResult
 	func addSettingsItem() -> NSMenuItem {
-		addCallbackItem("Settings…", key: ",") {
+		addCallbackItem("设置…", key: ",") {
 			SSApp.showSettingsWindow()
-		}
-	}
-
-	@discardableResult
-	func addLinkItem(_ title: String, destination: URL) -> NSMenuItem {
-		addCallbackItem(title) {
-			destination.open()
-		}
-	}
-
-	@discardableResult
-	func addLinkItem(_ title: NSAttributedString, destination: URL) -> NSMenuItem {
-		addCallbackItem(title) {
-			destination.open()
-		}
-	}
-
-	@discardableResult
-	func addMoreAppsItem() -> NSMenuItem {
-		addLinkItem(
-			"More Apps By Me",
-			destination: "macappstore://apps.apple.com/developer/id328077650"
-		)
-	}
-
-	@discardableResult
-	func addAboutItem() -> NSMenuItem {
-		addCallbackItem("About") {
-			Task { @MainActor in // TODO: Remove this when NSMenu is annotated as main actor.
-				SSApp.activateIfAccessory()
-			}
-
-			NSApp.orderFrontStandardAboutPanel(nil)
 		}
 	}
 
@@ -388,7 +371,7 @@ extension NSMenu {
 	func addQuitItem() -> NSMenuItem {
 		addSeparator()
 
-		return addCallbackItem("Quit \(SSApp.name)", key: "q") {
+		return addCallbackItem("退出 \(SSApp.name)", key: "q") {
 			SSApp.quit()
 		}
 	}
@@ -404,20 +387,49 @@ extension AnyCancellable {
 }
 
 
+/// App 元信息、激活、退出、反馈和外部事件等全局工具。
 enum SSApp {
-	static let idString = Bundle.main.bundleIdentifier!
-	static let name = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) as! String
-	static let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-	static let build = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
+	static let bundle = resolvedBundle()
+
+	static let idString = bundle.bundleIdentifier ?? "com.sindresorhus.PlashDev"
+	static let name = bundle.object(forInfoDictionaryKey: kCFBundleNameKey as String) as? String ?? "Plash Dev"
+	static let version = bundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0"
+	static let build = bundle.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ?? "0"
 	static let versionWithBuild = "\(version) (\(build))"
 	static let icon = NSApp.applicationIconImage!
-	static let url = Bundle.main.bundleURL
+	static let url = bundle.bundleURL
 
+	/// 在正常运行、测试或命令行环境中解析当前 App bundle。
+	private static func resolvedBundle() -> Bundle {
+		if
+			let bundlePath = ProcessInfo.processInfo.environment["PLASH_BUNDLE_PATH"],
+			let bundle = Bundle(url: URL(fileURLWithPath: bundlePath))
+		{
+			return bundle
+		}
+
+		if let bundleIdentifier = Bundle.main.bundleIdentifier, !bundleIdentifier.isEmpty {
+			return .main
+		}
+
+		guard let executablePath = CommandLine.arguments.first else {
+			return .main
+		}
+
+		let bundleURL = URL(fileURLWithPath: executablePath)
+			.deletingLastPathComponent()
+			.deletingLastPathComponent()
+
+		return Bundle(url: bundleURL) ?? .main
+	}
+
+	/// 退出当前应用。
 	@MainActor
 	static func quit() {
 		NSApp.terminate(nil)
 	}
 
+	/// 判断是否第一次启动，并在首次访问后写入标记。
 	static let isFirstLaunch: Bool = {
 		let key = "SS_hasLaunched"
 
@@ -436,6 +448,7 @@ enum SSApp {
 		\(Device.hardwareModel)
 		"""
 
+	/// 打开反馈网页，并把 App/系统信息作为查询参数带上。
 	static func openSendFeedbackPage() {
 		let query: [String: String] = [
 			"product": name,
@@ -447,6 +460,7 @@ enum SSApp {
 			.open()
 	}
 
+	/// 如果 App 当前是 accessory 模式，则强制激活到前台。
 	@MainActor
 	static func activateIfAccessory() {
 		guard NSApp.activationPolicy() == .accessory else {
@@ -457,6 +471,7 @@ enum SSApp {
 	}
 
 //	@MainActor
+	/// 强制激活当前 App，用于菜单栏应用弹出窗口或提示。
 	static func forceActivate() {
 		NSApp.yieldActivation(toApplicationWithBundleIdentifier: idString)
 		NSApp.activate()
@@ -465,14 +480,13 @@ enum SSApp {
 
 extension SSApp {
 	/**
-	Manually show the SwiftUI settings window.
+	Manually show the settings page in the main window.
 	*/
 	@MainActor
 	static func showSettingsWindow() {
 		// Run in the next runloop so it doesn't conflict with SwiftUI if run at startup.
 		DispatchQueue.main.async {
-			SSApp.activateIfAccessory()
-			EnvironmentValues().openSettings()
+			Constants.openSettingsInWebsitesWindow()
 		}
 	}
 }
@@ -495,6 +509,7 @@ extension SSApp {
 
 
 extension SSApp {
+	/// 监听来自外部进程的设置、反馈和复制调试信息通知。
 	static func setUpExternalEventListeners() {
 		DistributedNotificationCenter.default.publisher(for: .init("\(SSApp.idString):showSettings"))
 			.sink { _ in
@@ -583,12 +598,15 @@ extension URL {
 }
 
 
+/// 当前设备和系统版本信息。
 enum Device {
+	/// 当前 macOS 版本号。
 	static let osVersion: String = {
 		let os = ProcessInfo.processInfo.operatingSystemVersion
 		return "\(os.majorVersion).\(os.minorVersion).\(os.patchVersion)"
 	}()
 
+	/// 当前硬件型号，例如 MacBookPro。
 	static let hardwareModel: String = {
 		var size = 0
 		sysctlbyname("hw.model", nil, &size, nil, 0)
@@ -820,9 +838,11 @@ extension NSToolbarItem: ControlActionClosureProtocol {}
 extension NSGestureRecognizer: ControlActionClosureProtocol {}
 
 
+/// SwiftUI 包装的 AppKit 按钮，用于需要 AppKit 行为的场景。
 struct CocoaButton: NSViewRepresentable {
 	typealias NSViewType = NSButton
 
+	/// 支持设置为按钮默认快捷键的按键。
 	enum KeyEquivalent: String {
 		case escape = "\u{1b}"
 		case `return` = "\r"
@@ -834,6 +854,7 @@ struct CocoaButton: NSViewRepresentable {
 	let bezelStyle: NSButton.BezelStyle
 	let action: () -> Void
 
+	/// 使用普通文本创建按钮。
 	init(
 		_ title: String,
 		keyEquivalent: KeyEquivalent? = nil,
@@ -846,6 +867,7 @@ struct CocoaButton: NSViewRepresentable {
 		self.action = action
 	}
 
+	/// 使用富文本创建按钮。
 	init(
 		_ attributedTitle: NSAttributedString,
 		keyEquivalent: KeyEquivalent? = nil,
@@ -858,6 +880,7 @@ struct CocoaButton: NSViewRepresentable {
 		self.action = action
 	}
 
+	/// 创建底层 NSButton。
 	func makeNSView(context: Context) -> NSViewType {
 		let nsView = NSButton(title: "", target: nil, action: nil)
 		nsView.wantsLayer = true
@@ -867,6 +890,7 @@ struct CocoaButton: NSViewRepresentable {
 		return nsView
 	}
 
+	/// 同步 SwiftUI 状态到 NSButton，并绑定点击回调。
 	func updateNSView(_ nsView: NSViewType, context: Context) {
 		if attributedTitle == nil {
 			nsView.title = title ?? ""
@@ -886,15 +910,19 @@ struct CocoaButton: NSViewRepresentable {
 }
 
 
+/// 网络地址校验工具。
 enum Validators {
+	/// 判断字符串是否是 IPv4 地址。
 	static func isIPv4(_ string: String) -> Bool {
 		IPv4Address(string) != nil
 	}
 
+	/// 判断字符串是否是 IPv6 地址。
 	static func isIPv6(_ string: String) -> Bool {
 		IPv6Address(string) != nil
 	}
 
+	/// 判断字符串是否是任意 IP 地址。
 	static func isIP(_ string: String) -> Bool {
 		isIPv4(string) || isIPv6(string)
 	}
@@ -1514,8 +1542,8 @@ extension WKWebView {
 		let alert = NSAlert()
 		alert.alertStyle = .informational
 		alert.messageText = message
-		alert.addButton(withTitle: "OK")
-		alert.addButton(withTitle: "Cancel")
+		alert.addButton(withTitle: "确定")
+		alert.addButton(withTitle: "取消")
 		return await alert.run() == .alertFirstButtonReturn
 	}
 
@@ -1526,8 +1554,8 @@ extension WKWebView {
 		let alert = NSAlert()
 		alert.alertStyle = .informational
 		alert.messageText = prompt
-		alert.addButton(withTitle: "OK")
-		alert.addButton(withTitle: "Cancel")
+		alert.addButton(withTitle: "确定")
+		alert.addButton(withTitle: "取消")
 
 		let textField = AutofocusedTextField(frame: CGRect(x: 0, y: 0, width: 200, height: 22))
 		textField.stringValue = defaultText ?? ""
@@ -1543,7 +1571,7 @@ extension WKWebView {
 		let openPanel = NSOpenPanel()
 		openPanel.identifier = .init("WKWebView_defaultUploadPanelHandler")
 		openPanel.level = .floating
-		openPanel.prompt = "Choose"
+		openPanel.prompt = "选择"
 		openPanel.allowsMultipleSelection = parameters.allowsMultipleSelection
 		openPanel.canChooseFiles = !parameters.allowsDirectories
 		openPanel.canChooseDirectories = parameters.allowsDirectories
@@ -1588,21 +1616,21 @@ extension WKWebView {
 		}
 
 		let alert = NSAlert()
-		alert.messageText = "Log in to \(host)"
-		alert.addButton(withTitle: "Log In")
-		alert.addButton(withTitle: "Cancel")
+		alert.messageText = "登录 \(host)"
+		alert.addButton(withTitle: "登录")
+		alert.addButton(withTitle: "取消")
 
 		let view = NSView(frame: CGRect(x: 0, y: 0, width: 200, height: 54))
 		alert.accessoryView = view
 
 		let username = AutofocusedTextField(frame: CGRect(x: 0, y: 32, width: 200, height: 22))
 		username.contentType = .username
-		username.placeholderString = "Username"
+		username.placeholderString = "用户名"
 		view.addSubview(username)
 
 		let password = NSSecureTextField(frame: CGRect(x: 0, y: 0, width: 200, height: 22))
 		password.contentType = .password
-		password.placeholderString = "Password"
+		password.placeholderString = "密码"
 		view.addSubview(password)
 
 		// TODO: It doesn't continue tabbing to the buttons after the password field.
@@ -2112,6 +2140,7 @@ extension NSScreen {
 }
 
 
+/// 可持久化保存的显示器标识，封装 NSScreen 的 transient/persistent ID 转换。
 struct Display: Hashable, Codable, Identifiable {
 	/**
 	Self wrapped in an observable that updates when display change.
@@ -2153,7 +2182,7 @@ struct Display: Hashable, Codable, Identifiable {
 	/**
 	The localized name of the display.
 	*/
-	var localizedName: String { screen?.localizedName ?? "<Unknown name>" }
+	var localizedName: String { screen?.localizedName ?? "<未知名称>" }
 
 	/**
 	Whether the display is connected.
@@ -2165,10 +2194,12 @@ struct Display: Hashable, Codable, Identifiable {
 	*/
 	var withFallbackToMain: Self? { isConnected ? self : .main }
 
+	/// 使用持久化 UUID 创建显示器引用。
 	init(_ id: UUID) {
 		self.id = id
 	}
 
+	/// 使用当前会话中的显示器 ID 创建持久化显示器引用。
 	init?(transientID: CGDirectDisplayID) {
 		guard let id = NSScreen.uuidFromID(transientID) else {
 			return nil
@@ -2177,20 +2208,24 @@ struct Display: Hashable, Codable, Identifiable {
 		self.init(id)
 	}
 
+	/// 使用 NSScreen 创建显示器引用。
 	init?(screen: NSScreen) {
 		self.init(transientID: screen.id)
 	}
 }
 
 extension Display: Defaults.Serializable {
+	/// 在 Defaults 中把 Display 序列化为持久化 UUID。
 	struct Bridge: Defaults.Bridge {
 		typealias Value = Display
 		typealias Serializable = UUID
 
+		/// 保存 Display 的持久化 ID。
 		func serialize(_ value: Value?) -> Serializable? {
 			value?.id
 		}
 
+		/// 从持久化 ID 恢复 Display。
 		func deserialize(_ object: Serializable?) -> Value? {
 			guard let object else {
 				return nil
@@ -2433,15 +2468,20 @@ extension View {
 }
 
 
+/// 监听当前电源来源，供“使用电池时停用”设置使用。
 final class PowerSourceWatcher {
+	/// macOS 报告的电源来源类型。
 	enum PowerSource {
 		case internalBattery
 		case externalUnlimited
 		case externalUPS
 
+		/// 当前是否连接到外部供电。
 		var isUsingPowerAdapter: Bool { self == .externalUnlimited || self == .externalUPS }
+		/// 当前是否使用内置电池。
 		var isUsingBattery: Bool { self == .internalBattery }
 
+		/// 将 IOKit 电源标识转换为业务枚举。
 		fileprivate init(identifier: String) {
 			switch identifier {
 			case kIOPMBatteryPowerKey:
@@ -2465,11 +2505,13 @@ final class PowerSourceWatcher {
 	*/
 	private(set) lazy var didChangePublisher = didChangeSubject.eraseToAnyPublisher()
 
+	/// 读取当前电源来源。
 	var powerSource: PowerSource {
 		let identifier = IOPSGetProvidingPowerSourceType(nil)!.takeRetainedValue() as String
 		return PowerSource(identifier: identifier)
 	}
 
+	/// 注册 IOKit 电源变化通知。
 	init?() {
 		let powerSourceCallback: IOPowerSourceCallbackType = { context in
 			// Force-unwrapping is safe here as we're the ones passing the `context`.
@@ -2486,6 +2528,7 @@ final class PowerSourceWatcher {
 		CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .defaultMode)
 	}
 
+	/// 将 IOKit 回调转换为 Combine 事件。
 	private func internalOnChange() {
 		didChangeSubject.send(powerSource)
 	}
@@ -2780,8 +2823,8 @@ enum SecurityScopedBookmarkManager {
 		func panel(_ sender: Any, validate url: URL) throws {
 			if url != currentURL {
 				throw NSError.appError(
-					"Incorrect directory.",
-					recoverySuggestion: "Select the directory “\(currentURL.tildePath)”."
+					"目录不正确。",
+					recoverySuggestion: "请选择目录“\(currentURL.tildePath)”。"
 				)
 			}
 		}
@@ -2853,9 +2896,9 @@ enum SecurityScopedBookmarkManager {
 			$0.canChooseDirectories = true
 			$0.canChooseFiles = false
 			$0.canCreateDirectories = false
-			$0.title = "Permission"
-			$0.message = message ?? "\(SSApp.name) needs access to the “\(directoryURL.lastPathComponent)” directory. Click “Allow” to proceed."
-			$0.prompt = "Allow"
+			$0.title = "权限"
+			$0.message = message ?? "\(SSApp.name) 需要访问“\(directoryURL.lastPathComponent)”目录。点按“允许”继续。"
+			$0.prompt = "允许"
 		}
 
 		SSApp.activateIfAccessory()
@@ -3035,9 +3078,9 @@ extension URL {
 		var errorDescription: String? {
 			switch self {
 			case .failedToEncodePlaceholder(let placeholder):
-				"Failed to encode placeholder “\(placeholder)”"
+				"无法编码占位符“\(placeholder)”"
 			case .invalidURLAfterSubstitution(let urlString):
-				"New URL was not valid after substituting placeholders. URL string is “\(urlString)”"
+				"替换占位符后的新 URL 无效。URL 字符串为“\(urlString)”"
 			}
 		}
 	}
@@ -3252,6 +3295,7 @@ extension WKWebView {
 }
 
 
+/// Objective-C 关联对象使用的内存管理策略。
 enum AssociationPolicy {
 	case assign
 	case retainNonatomic
@@ -3259,6 +3303,7 @@ enum AssociationPolicy {
 	case retain
 	case copy
 
+	/// 转换为 Objective-C runtime 使用的原始策略。
 	var rawValue: objc_AssociationPolicy {
 		switch self {
 		case .assign:
@@ -3275,15 +3320,18 @@ enum AssociationPolicy {
 	}
 }
 
+/// 类型安全的 Objective-C 关联对象存储。
 final class ObjectAssociation<Value: Any> {
 	private let defaultValue: Value
 	private let policy: AssociationPolicy
 
+	/// 创建一个带默认值的关联对象存储。
 	init(defaultValue: Value, policy: AssociationPolicy = .retainNonatomic) {
 		self.defaultValue = defaultValue
 		self.policy = policy
 	}
 
+	/// 读写指定对象上的关联值。
 	subscript(index: AnyObject) -> Value {
 		get {
 			objc_getAssociatedObject(index, Unmanaged.passUnretained(self).toOpaque()) as? Value ?? defaultValue
@@ -3295,6 +3343,7 @@ final class ObjectAssociation<Value: Any> {
 }
 
 extension ObjectAssociation {
+	/// 创建默认值为 nil 的可选关联对象存储。
 	convenience init<T>(policy: AssociationPolicy = .retainNonatomic) where Value == T? {
 		self.init(defaultValue: nil, policy: policy)
 	}
@@ -4013,6 +4062,7 @@ final class Cache<Key: Hashable, Value> {
 }
 
 
+/// 可作为图片缓存键的类型。
 protocol SimpleImageCacheKeyable: Hashable {
 	var cacheKey: String { get }
 }
@@ -4596,12 +4646,15 @@ TODO when Swift 5.5 is out:
 - Support specifying target size and have it return the one closest above the target size, if any.
 - Use the icons in the "Switch" menu.
 */
+/// 按多种网页元数据来源抓取网站图标。
 @MainActor
 final class WebsiteIconFetcher: NSObject {
+	/// Web App Manifest 中声明的图标候选项。
 	private struct WebAppManifestIcon {
 		let url: URL
 		let size: CGSize?
 
+		/// 从 manifest 的 icon 字典中解析 URL 和尺寸。
 		init?(_ dictionary: [String: String]) {
 			guard
 				// TODO: Handle relative URLs: https://developer.mozilla.org/en-US/docs/Web/Manifest/icons
@@ -4625,10 +4678,11 @@ final class WebsiteIconFetcher: NSObject {
 		}
 	}
 
+	/// 抓取指定网站最合适的图标。
 	@MainActor
 	static func fetch(for url: URL) async throws -> NSImage? {
 		guard url.isValid else {
-			throw NSError.appError("Invalid URL: \(url.absoluteString)")
+			throw NSError.appError("无效 URL：\(url.absoluteString)")
 		}
 
 		return try await self.init().fetch(for: url)
@@ -4655,11 +4709,13 @@ final class WebsiteIconFetcher: NSObject {
 	private var url: URL?
 	private var continuation: CheckedContinuation<Void, Error>?
 
+	/// 下载图片 URL 并转换为 NSImage。
 	private func getImage(_ url: URL) async throws -> NSImage? {
 		let (data, _) = try await URLSession.shared.data(from: url)
 		return NSImage(data: data)
 	}
 
+	/// 尝试读取站点根目录的 favicon.ico。
 	private func getFavicon() async throws -> NSImage? {
 		guard
 			let faviconURL = URL(string: "favicon.ico", relativeTo: url)
@@ -4670,6 +4726,7 @@ final class WebsiteIconFetcher: NSObject {
 		return try await getImage(faviconURL)
 	}
 
+	/// 使用 LinkPresentation 获取系统解析出的站点图标。
 	private func getFromLPMetadataProvider(url: URL) async throws -> NSImage? {
 		let metadata = try await LPMetadataProvider().startFetchingMetadata(for: url)
 
@@ -4684,6 +4741,7 @@ final class WebsiteIconFetcher: NSObject {
 	}
 
 	// TODO: This is moot as the class is marked as `@MainActor`, but we keep it for now just in case.
+	/// 从 Web App Manifest 中选择最大图标。
 	@MainActor
 	private func getFromManifest() async throws -> NSImage? {
 		let code =
@@ -4721,6 +4779,7 @@ final class WebsiteIconFetcher: NSObject {
 		return try await getImage(largestIcon.url)
 	}
 
+	/// 从 `<link rel~="icon">` 中获取图标。
 	@MainActor
 	private func getFromLinkIcon() async throws -> NSImage? {
 		// TODO: There can be multiple of this one, some with larger sizes specified in a `sizes` prop.
@@ -4742,6 +4801,7 @@ final class WebsiteIconFetcher: NSObject {
 		return try await getImage(url)
 	}
 
+	/// 从 `<meta itemprop="image">` 中获取预览图。
 	@MainActor
 	private func getFromMetaItemPropImage() async throws -> NSImage? {
 		let code =
@@ -4761,6 +4821,7 @@ final class WebsiteIconFetcher: NSObject {
 		return try await getImage(url)
 	}
 
+	/// 加载页面后按优先级依次尝试多个图标来源。
 	@MainActor
 	private func fetch(for url: URL) async throws -> NSImage? {
 		self.url = url
@@ -4800,20 +4861,24 @@ final class WebsiteIconFetcher: NSObject {
 }
 
 extension WebsiteIconFetcher: WKNavigationDelegate {
+	/// 只允许主文档响应，阻止子资源影响图标抓取。
 	func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse) async -> WKNavigationResponsePolicy {
 		navigationResponse.isForMainFrame ? .allow : .cancel
 	}
 
+	/// 主文档加载成功后恢复等待中的 fetch。
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		continuation?.resume()
 		continuation = nil // These delegate methods can be called multiple times.
 	}
 
+	/// 导航失败时把错误传回 fetch。
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		continuation?.resume(throwing: error)
 		continuation = nil
 	}
 
+	/// 主文档提交前失败时把错误传回 fetch。
 	func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
 		continuation?.resume(throwing: error)
 		continuation = nil
@@ -4885,37 +4950,17 @@ extension Numeric {
 }
 
 
-extension SSApp {
-	private static let key = Defaults.Key("SSApp_requestReview", default: 0)
-
-	/**
-	Requests a review only after this method has been called the given amount of times.
-	*/
-	@MainActor
-	static func requestReviewAfterBeingCalledThisManyTimes(
-		_ counts: [Int],
-		_ requestReview: RequestReviewAction
-	) {
-		guard
-			!isFirstLaunch,
-			counts.contains(Defaults[key].increment())
-		else {
-			return
-		}
-
-		requestReview()
-	}
-}
-
-
+/// 为 Codable 模型提供缺省解码值的命名空间。
 enum DecodableDefault {}
 
+/// 声明某种缺省解码值的来源。
 protocol DecodableDefaultSource {
 	associatedtype Value: Decodable
 	static var defaultValue: Value { get }
 }
 
 extension DecodableDefault {
+	/// 在字段缺失时使用 Source 提供的默认值。
 	@propertyWrapper
 	struct Wrapper<Source: DecodableDefaultSource> {
 		typealias Value = Source.Value
@@ -4924,6 +4969,7 @@ extension DecodableDefault {
 }
 
 extension DecodableDefault.Wrapper: Decodable {
+	/// 从解码器读取值，字段不存在时由容器扩展提供默认值。
 	init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()
 		wrappedValue = try container.decode(Value.self)
@@ -4931,6 +4977,7 @@ extension DecodableDefault.Wrapper: Decodable {
 }
 
 extension KeyedDecodingContainer {
+	/// 字段缺失时返回带默认值的 wrapper。
 	func decode<T>(
 		_ type: DecodableDefault.Wrapper<T>.Type,
 		forKey key: Key
@@ -4940,6 +4987,7 @@ extension KeyedDecodingContainer {
 }
 
 extension DecodableDefault {
+	/// 内置默认值来源集合。
 	typealias Source = DecodableDefaultSource
 	typealias List = Decodable & ExpressibleByArrayLiteral
 	typealias Map = Decodable & ExpressibleByDictionaryLiteral
@@ -4993,10 +5041,12 @@ extension DecodableDefault.Wrapper: Hashable where Value: Hashable {}
 extension DecodableDefault.Wrapper: Sendable where Value: Sendable {}
 
 extension DecodableDefault.Wrapper: Identifiable where Value: Identifiable {
+	/// 透传被包装值的 ID。
 	var id: Value.ID { wrappedValue.id }
 }
 
 extension DecodableDefault.Wrapper: Encodable where Value: Encodable {
+	/// 按被包装值本身编码。
 	func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()
 		try container.encode(wrappedValue)
@@ -5201,34 +5251,6 @@ extension View {
 	}
 }
 
-
-enum SettingsTabType {
-	case general
-	case advanced
-	case shortcuts
-
-	fileprivate var label: some View {
-		switch self {
-		case .general:
-			Label("General", systemImage: "gearshape")
-		case .advanced:
-			Label("Advanced", systemImage: "gearshape.2")
-		case .shortcuts:
-			Label("Shortcuts", systemImage: "command")
-		}
-	}
-}
-
-extension View {
-	/**
-	Make the view a settings tab of the given type.
-	*/
-	func settingsTabItem(_ type: SettingsTabType) -> some View {
-		tabItem { type.label }
-	}
-}
-
-
 extension Notification.Name {
 	/**
 	Must be used with `DistributedNotificationCenter`.
@@ -5241,7 +5263,7 @@ extension Notification.Name {
 	static let screenIsUnlocked = Self("com.apple.screenIsUnlocked")
 }
 
-
+/// 系统事件到 Combine Publisher 的桥接集合。
 enum SSEvents {
 	/**
 	Publishes when the machine wakes from sleep.
@@ -5274,8 +5296,10 @@ enum SSEvents {
 
 
 extension SSEvents {
+	/// 把 Apple Event 的 open URL 回调包装为 Combine Publisher。
 	private struct AppOpenURLPublisher: Publisher {
 		// We need this abstraction as `kAEGetURL` can only be subscribed to once.
+		/// 管理全局唯一 Apple Event 注册，并分发给多个订阅者。
 		private final class EventManager {
 			typealias Handler = (URLComponents) -> Void
 
@@ -5285,6 +5309,7 @@ extension SSEvents {
 
 			private var handlers = [UUID: Handler]()
 
+			/// 接收系统 open URL Apple Event 并转发给所有处理器。
 			@objc
 			private func handleEvent(_ event: NSAppleEventDescriptor, withReplyEvent replyEvent: NSAppleEventDescriptor) {
 				guard
@@ -5299,6 +5324,7 @@ extension SSEvents {
 				}
 			}
 
+			/// 添加一个 URL 事件处理器，并在首次添加时注册系统事件。
 			func add(_ handler: @escaping Handler) -> UUID {
 				if handlers.isEmpty {
 					NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(handleEvent(_:withReplyEvent:)), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
@@ -5309,6 +5335,7 @@ extension SSEvents {
 				return id
 			}
 
+			/// 移除 URL 事件处理器，并在无订阅者时注销系统事件。
 			func remove(_ id: UUID) {
 				handlers[id] = nil
 
@@ -5318,11 +5345,13 @@ extension SSEvents {
 			}
 		}
 
+		/// URL 事件 Publisher 的内部订阅。
 		private final class InternalSubscription<S: Subscriber>: Subscription where S.Input == Output, S.Failure == Failure {
 			private var id: UUID?
 
 			var subscriber: S?
 
+			/// 注册到事件管理器并保存订阅者。
 			init() {
 				self.id = EventManager.shared.add { [weak self] in
 					_ = self?.subscriber?.receive($0)
@@ -5335,8 +5364,10 @@ extension SSEvents {
 				}
 			}
 
+			/// Combine 背压接口；URL 事件不需要主动请求。
 			func request(_ demand: Subscribers.Demand) {}
 
+			/// 取消订阅并释放订阅者。
 			func cancel() {
 				subscriber = nil
 			}
@@ -5345,6 +5376,7 @@ extension SSEvents {
 		typealias Output = URLComponents
 		typealias Failure = Never
 
+		/// 创建内部订阅并连接到订阅者。
 		func receive<S: Subscriber>(subscriber: S) where S.Input == Output, S.Failure == Failure {
 			let subscription = InternalSubscription<S>()
 			subscription.subscriber = subscriber
@@ -5446,11 +5478,13 @@ extension RandomAccessCollection {
 }
 
 
+/// 基于 CaseIterable 枚举的通用 Picker。
 struct EnumPicker<Enum, Label, Content>: View where Enum: CaseIterable & Equatable, Enum.AllCases.Index: Hashable, Label: View, Content: View {
 	let selection: Binding<Enum>
 	@ViewBuilder let content: (Enum) -> Content
 	@ViewBuilder let label: () -> Label
 
+	/// 用枚举下标驱动 Picker 的选择状态。
 	var body: some View {
 		Picker(selection: selection.caseIndex) {
 			ForEach(Array(Enum.allCases).indexed(), id: \.0) { index, element in
@@ -5464,6 +5498,7 @@ struct EnumPicker<Enum, Label, Content>: View where Enum: CaseIterable & Equatab
 }
 
 extension EnumPicker where Label == Text {
+	/// 使用文本标题创建枚举 Picker。
 	init(
 		_ title: some StringProtocol,
 		selection: Binding<Enum>,
@@ -5523,7 +5558,7 @@ struct HideableInfoBox: View {
 	var body: some View {
 		PersistentlyHideableView(id: id, idPrefix: "HideableInfoBox") { hide in
 			HStack {
-				CloseOrClearButton("Hide") {
+				CloseOrClearButton("隐藏") {
 					hide()
 				}
 				Text(message)

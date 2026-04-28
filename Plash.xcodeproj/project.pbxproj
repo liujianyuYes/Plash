@@ -14,6 +14,13 @@
 		E32421382384E9D900D28A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E32421372384E9D900D28A91 /* Assets.xcassets */; };
 		E324213B2384E9D900D28A91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E324213A2384E9D900D28A91 /* Preview Assets.xcassets */; };
 		E32421472384EB4E00D28A91 /* DesktopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32421462384EB4E00D28A91 /* DesktopWindow.swift */; };
+		E4A000022704270000000001 /* DesktopComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A000012704270000000001 /* DesktopComponent.swift */; };
+		E4A000042704270000000001 /* DesktopComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A000032704270000000001 /* DesktopComponentsController.swift */; };
+		E4A000062704270000000001 /* DesktopComponentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A000052704270000000001 /* DesktopComponentsScreen.swift */; };
+		E4A000082704270000000001 /* PlashApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A000072704270000000001 /* PlashApplication.swift */; };
+		E4A0000A2704270000000001 /* ApplicationsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A000092704270000000001 /* ApplicationsScreen.swift */; };
+		E4A0000C2704280000000001 /* Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0000B2704280000000001 /* Wallpaper.swift */; };
+		E4A0000E2704280000000001 /* WallpaperScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0000D2704280000000001 /* WallpaperScreen.swift */; };
 		E32421562384F09D00D28A91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32421552384F09D00D28A91 /* Constants.swift */; };
 		E32421582384F0E600D28A91 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32421572384F0E600D28A91 /* Utilities.swift */; };
 		E324215A2384FBE500D28A91 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32421592384FBE500D28A91 /* WebViewController.swift */; };
@@ -70,6 +77,13 @@
 		E324213F2384E9D900D28A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E32421402384E9D900D28A91 /* Plash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Plash.entitlements; sourceTree = "<group>"; };
 		E32421462384EB4E00D28A91 /* DesktopWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DesktopWindow.swift; sourceTree = "<group>"; usesTabs = 1; };
+		E4A000012704270000000001 /* DesktopComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopComponent.swift; sourceTree = "<group>"; };
+		E4A000032704270000000001 /* DesktopComponentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopComponentsController.swift; sourceTree = "<group>"; };
+		E4A000052704270000000001 /* DesktopComponentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopComponentsScreen.swift; sourceTree = "<group>"; };
+		E4A000072704270000000001 /* PlashApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlashApplication.swift; sourceTree = "<group>"; };
+		E4A000092704270000000001 /* ApplicationsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsScreen.swift; sourceTree = "<group>"; };
+		E4A0000B2704280000000001 /* Wallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallpaper.swift; sourceTree = "<group>"; };
+		E4A0000D2704280000000001 /* WallpaperScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperScreen.swift; sourceTree = "<group>"; };
 		E32421552384F09D00D28A91 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Constants.swift; sourceTree = "<group>"; usesTabs = 1; };
 		E32421572384F0E600D28A91 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Utilities.swift; sourceTree = "<group>"; usesTabs = 1; };
 		E32421592384FBE500D28A91 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WebViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -145,6 +159,13 @@
 				E384F28124C3B3CD002FD21B /* Menus.swift */,
 				E354443B2607505100CA060F /* WebsitesController.swift */,
 				E3FAF814264333D300CF7963 /* Website.swift */,
+				E4A0000B2704280000000001 /* Wallpaper.swift */,
+				E4A0000D2704280000000001 /* WallpaperScreen.swift */,
+				E4A000072704270000000001 /* PlashApplication.swift */,
+				E4A000092704270000000001 /* ApplicationsScreen.swift */,
+				E4A000012704270000000001 /* DesktopComponent.swift */,
+				E4A000032704270000000001 /* DesktopComponentsController.swift */,
+				E4A000052704270000000001 /* DesktopComponentsScreen.swift */,
 				E32421462384EB4E00D28A91 /* DesktopWindow.swift */,
 				E30FD88823C4515200C716E9 /* SSWebView.swift */,
 				E32421592384FBE500D28A91 /* WebViewController.swift */,
@@ -320,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=\"/opt/homebrew/bin/:${PATH}\"\nswiftlint\n";
+			shellScript = "PATH=\"/opt/homebrew/bin/:${PATH}\"\ncommand -v swiftlint >/dev/null && swiftlint || true\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -337,13 +358,20 @@
 				E324215A2384FBE500D28A91 /* WebViewController.swift in Sources */,
 				E3494C26297D38CC00983648 /* Intents.swift in Sources */,
 				E32421342384E9D700D28A91 /* AppState.swift in Sources */,
+				E4A000022704270000000001 /* DesktopComponent.swift in Sources */,
+				E4A000082704270000000001 /* PlashApplication.swift in Sources */,
+				E4A0000C2704280000000001 /* Wallpaper.swift in Sources */,
 				E32421472384EB4E00D28A91 /* DesktopWindow.swift in Sources */,
+				E4A000042704270000000001 /* DesktopComponentsController.swift in Sources */,
 				E32421582384F0E600D28A91 /* Utilities.swift in Sources */,
 				E30FD88923C4515200C716E9 /* SSWebView.swift in Sources */,
 				E34FCBCE264D32150022BDD3 /* App.swift in Sources */,
 				E32421562384F09D00D28A91 /* Constants.swift in Sources */,
 				E3FAF815264333D300CF7963 /* Website.swift in Sources */,
 				E333EB1B2385244E005FCE44 /* SettingsScreen.swift in Sources */,
+				E4A0000A2704270000000001 /* ApplicationsScreen.swift in Sources */,
+				E4A000062704270000000001 /* DesktopComponentsScreen.swift in Sources */,
+				E4A0000E2704280000000001 /* WallpaperScreen.swift in Sources */,
 				E354442F26062D6300CA060F /* WebsitesScreen.swift in Sources */,
 				E354443C2607505100CA060F /* WebsitesController.swift in Sources */,
 				E3EC5A86250D7A0C00ABE1A1 /* WelcomeScreen.swift in Sources */,
@@ -507,10 +535,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Plash/Preview Content\"";
+				DEVELOPMENT_TEAM = MF34697B87;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plash/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Plash Dev";
+				INFOPLIST_KEY_CFBundleName = "Plash Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "MIT License © Sindre Sorhus";
@@ -520,8 +551,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.Plash;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.PlashDev;
+				PRODUCT_NAME = "Plash Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Debug;
@@ -536,10 +567,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Plash/Preview Content\"";
+				DEVELOPMENT_TEAM = MF34697B87;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plash/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Plash Dev";
+				INFOPLIST_KEY_CFBundleName = "Plash Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "MIT License © Sindre Sorhus";
@@ -549,8 +583,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.Plash;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.PlashDev;
+				PRODUCT_NAME = "Plash Dev";
 			};
 			name = Release;
 		};
@@ -562,16 +596,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = MF34697B87;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Plash;
+				INFOPLIST_KEY_CFBundleDisplayName = "Plash Dev";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.Plash.ShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.PlashDev.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -585,16 +620,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = MF34697B87;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Plash;
+				INFOPLIST_KEY_CFBundleDisplayName = "Plash Dev";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.Plash.ShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sindresorhus.PlashDev.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

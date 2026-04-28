@@ -1,0 +1,23 @@
+{
+  "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/AppState.swift" : {
+    "const-values" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/AppState.swiftconstvalues",
+    "dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/AppState.d",
+    "diagnostics" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/AppState.dia",
+    "object" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/AppState.o",
+    "swift-dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/AppState.swiftdeps"
+  },
+  "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/DesktopComponent.swift" : {
+    "const-values" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/DesktopComponent.swiftconstvalues",
+    "dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/DesktopComponent.d",
+    "diagnostics" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/DesktopComponent.dia",
+    "object" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/DesktopComponent.o",
+    "swift-dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/DesktopComponent.swiftdeps"
+  },
+  "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/PlashApplication.swift" : {
+    "const-values" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/PlashApplication.swiftconstvalues",
+    "dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/PlashApplication.d",
+    "diagnostics" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/PlashApplication.dia",
+    "object" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/PlashApplication.o",
+    "swift-dependencies" : "/Users/liujianyu/Development/IdeaProjects/Plash/build/Build/Intermediates.noindex/Plash.build/Debug/Plash.build/Objects-normal/arm64/PlashApplication.swiftdeps"
+  }
+}

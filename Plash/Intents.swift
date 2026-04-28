@@ -1,30 +1,32 @@
 import AppIntents
 import AppKit
 
+/// 快捷指令动作：添加一个网站到 Plash。
 struct AddWebsiteIntent: AppIntent {
-	static let title: LocalizedStringResource = "Add Website"
+	static let title: LocalizedStringResource = "添加网站"
 
 	static let description = IntentDescription(
 		"""
-		Adds a website to Plash.
+		将网站添加到 Plash。
 
-		Returns the added website.
+		返回添加的网站。
 		""",
-		resultValueName: "Added Website"
+		resultValueName: "添加的网站"
 	)
 
-	@Parameter(title: "URL")
+	@Parameter(title: "网址")
 	var url: URL
 
-	@Parameter(title: "Title")
+	@Parameter(title: "标题")
 	var title: String?
 
 	static var parameterSummary: some ParameterSummary {
-		Summary("Add \(\.$url) to Plash") {
+		Summary("将 \(\.$url) 添加到 Plash") {
 			\.$title
 		}
 	}
 
+	/// 确保主 App 运行，添加网站并返回对应实体。
 	@MainActor
 	func perform() async throws -> some IntentResult & ReturnsValue<WebsiteAppEntity> {
 		ensureRunning()
@@ -33,18 +35,20 @@ struct AddWebsiteIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：从 Plash 删除指定网站。
 struct RemoveWebsitesIntent: AppIntent {
-	static let title: LocalizedStringResource = "Remove Websites"
+	static let title: LocalizedStringResource = "删除网站"
 
-	static let description = IntentDescription("Removes the given websites from Plash.")
+	static let description = IntentDescription("从 Plash 删除指定网站。")
 
-	@Parameter(title: "Websites")
+	@Parameter(title: "网站")
 	var websites: [WebsiteAppEntity]
 
 	static var parameterSummary: some ParameterSummary {
-		Summary("Remove websites \(\.$websites)")
+		Summary("删除网站 \(\.$websites)")
 	}
 
+	/// 删除所有能映射回本地模型的网站实体。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -61,18 +65,19 @@ struct RemoveWebsitesIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：设置或切换 Plash 启用状态。
 struct SetEnabledStateIntent: AppIntent {
-	static let title: LocalizedStringResource = "Set Enabled State"
+	static let title: LocalizedStringResource = "设置启用状态"
 
-	static let description = IntentDescription("Sets the enabled state of Plash.")
+	static let description = IntentDescription("设置 Plash 的启用状态。")
 
 	@Parameter(
-		title: "Action",
-		displayName: .init(true: "Toggle", false: "Turn")
+		title: "操作",
+		displayName: .init(true: "切换", false: "设置")
 	)
 	var shouldToggle: Bool
 
-	@Parameter(title: "Is Enabled")
+	@Parameter(title: "已启用")
 	var isEnabled: Bool
 
 	static var parameterSummary: some ParameterSummary {
@@ -83,6 +88,7 @@ struct SetEnabledStateIntent: AppIntent {
 		}
 	}
 
+	/// 根据参数切换或设置手动停用状态。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -97,32 +103,36 @@ struct SetEnabledStateIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：读取 Plash 当前启用状态。
 struct GetEnabledStateIntent: AppIntent {
-	static let title: LocalizedStringResource = "Get Enabled State"
+	static let title: LocalizedStringResource = "获取启用状态"
 
 	static let description = IntentDescription(
-		"Returns whether Plash is currently enabled.",
-		resultValueName: "Enabled State"
+		"返回 Plash 当前是否已启用。",
+		resultValueName: "启用状态"
 	)
 
 	static var parameterSummary: some ParameterSummary {
-		Summary("Get the current enabled state of Plash")
+		Summary("获取 Plash 当前启用状态")
 	}
 
+	/// 返回 AppState 当前计算出的启用状态。
 	@MainActor
 	func perform() async throws -> some IntentResult & ReturnsValue<Bool> {
 		.result(value: AppState.shared.isEnabled)
 	}
 }
 
+/// 快捷指令动作：获取当前正在显示的网站。
 struct GetCurrentWebsiteIntent: AppIntent {
-	static let title: LocalizedStringResource = "Get Current Website"
+	static let title: LocalizedStringResource = "获取当前网站"
 
 	static let description = IntentDescription(
-		"Returns the current website in Plash.",
-		resultValueName: "Current Website"
+		"返回 Plash 当前网站。",
+		resultValueName: "当前网站"
 	)
 
+	/// 返回当前网站实体；没有网站时返回 nil。
 	@MainActor
 	func perform() async throws -> some IntentResult & ReturnsValue<WebsiteAppEntity?> {
 		ensureRunning()
@@ -130,18 +140,20 @@ struct GetCurrentWebsiteIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：设置当前正在显示的网站。
 struct SetCurrentWebsiteIntent: AppIntent {
-	static let title: LocalizedStringResource = "Set Current Website"
+	static let title: LocalizedStringResource = "设置当前网站"
 
-	static let description = IntentDescription("Sets the current website in Plash to the given website.")
+	static let description = IntentDescription("将 Plash 当前网站设置为指定网站。")
 
-	@Parameter(title: "Website")
+	@Parameter(title: "网站")
 	var website: WebsiteAppEntity
 
 	static var parameterSummary: some ParameterSummary {
-		Summary("Set current website to \(\.$website)")
+		Summary("将当前网站设为 \(\.$website)")
 	}
 
+	/// 将传入实体映射到本地网站并设为当前项。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -150,11 +162,13 @@ struct SetCurrentWebsiteIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：重新加载当前网站。
 struct ReloadWebsiteIntent: AppIntent {
-	static let title: LocalizedStringResource = "Reload Website"
+	static let title: LocalizedStringResource = "重新加载网站"
 
-	static let description = IntentDescription("Reloads the current website in Plash.")
+	static let description = IntentDescription("重新加载 Plash 当前网站。")
 
+	/// 触发当前网站重新加载。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -163,11 +177,13 @@ struct ReloadWebsiteIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：切换到下一个网站。
 struct NextWebsiteIntent: AppIntent {
-	static let title: LocalizedStringResource = "Switch to Next Website"
+	static let title: LocalizedStringResource = "切换到下一个网站"
 
-	static let description = IntentDescription("Switches Plash to the next website in the list.")
+	static let description = IntentDescription("将 Plash 切换到列表中的下一个网站。")
 
+	/// 将网站列表中的下一项设为当前网站。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -176,11 +192,13 @@ struct NextWebsiteIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：切换到上一个网站。
 struct PreviousWebsiteIntent: AppIntent {
-	static let title: LocalizedStringResource = "Switch to Previous Website"
+	static let title: LocalizedStringResource = "切换到上一个网站"
 
-	static let description = IntentDescription("Switches Plash to the previous website in the list.")
+	static let description = IntentDescription("将 Plash 切换到列表中的上一个网站。")
 
+	/// 将网站列表中的上一项设为当前网站。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -189,11 +207,13 @@ struct PreviousWebsiteIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：随机切换网站。
 struct RandomWebsiteIntent: AppIntent {
-	static let title: LocalizedStringResource = "Switch to Random Website"
+	static let title: LocalizedStringResource = "切换到随机网站"
 
-	static let description = IntentDescription("Switches Plash to a random website in the list.")
+	static let description = IntentDescription("将 Plash 切换到列表中的随机网站。")
 
+	/// 随机选择一个网站设为当前网站。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -202,11 +222,13 @@ struct RandomWebsiteIntent: AppIntent {
 	}
 }
 
+/// 快捷指令动作：切换浏览模式。
 struct ToggleBrowsingModeIntent: AppIntent {
-	static let title: LocalizedStringResource = "Toggle Browsing Mode"
+	static let title: LocalizedStringResource = "切换浏览模式"
 
-	static let description = IntentDescription("Toggles “Browsing Mode” for Plash.")
+	static let description = IntentDescription("切换 Plash 的“浏览模式”。")
 
+	/// 切换浏览模式设置。
 	@MainActor
 	func perform() async throws -> some IntentResult {
 		ensureRunning()
@@ -215,23 +237,24 @@ struct ToggleBrowsingModeIntent: AppIntent {
 	}
 }
 
+/// 暴露给快捷指令的 Plash 网站实体。
 struct WebsiteAppEntity: AppEntity {
-	static let typeDisplayRepresentation: TypeDisplayRepresentation = "Website"
+	static let typeDisplayRepresentation: TypeDisplayRepresentation = "网站"
 
 	static let defaultQuery = Query()
 
 	let id: UUID
 
-	@Property(title: "Title")
+	@Property(title: "标题")
 	var title: String
 
-	@Property(title: "URL")
+	@Property(title: "网址")
 	var url: URL
 
-	@Property(title: "URL Host")
+	@Property(title: "网址主机")
 	var urlHost: String
 
-	@Property(title: "Is Current")
+	@Property(title: "当前使用")
 	var isCurrent: Bool
 
 	init(_ website: Website) {
@@ -242,6 +265,7 @@ struct WebsiteAppEntity: AppEntity {
 		self.isCurrent = website.isCurrent
 	}
 
+	/// 在快捷指令界面展示网站标题和 URL。
 	var displayRepresentation: DisplayRepresentation {
 		let title = title.nilIfEmptyOrWhitespace
 		let urlString = url.absoluteString.removingSchemeAndWWWFromURL
@@ -254,6 +278,7 @@ struct WebsiteAppEntity: AppEntity {
 }
 
 extension WebsiteAppEntity {
+	/// 将快捷指令实体映射回当前 Defaults 中的网站模型。
 	@MainActor
 	var toNative: Website? {
 		WebsitesController.shared.all[id: id]
@@ -261,24 +286,29 @@ extension WebsiteAppEntity {
 }
 
 extension WebsiteAppEntity {
+	/// 支持快捷指令枚举、搜索和按 ID 查找网站实体。
 	struct Query: EnumerableEntityQuery, EntityStringQuery {
 		static let findIntentDescription = IntentDescription(
-			"Returns the websites in Plash.",
-			resultValueName: "Websites"
+			"返回 Plash 中的网站。",
+			resultValueName: "网站"
 		)
 
+		/// 返回所有网站实体。
 		func allEntities() async -> [WebsiteAppEntity] {
 			await WebsitesController.shared.all.map(WebsiteAppEntity.init)
 		}
 
+		/// 给快捷指令参数选择器提供建议网站。
 		func suggestedEntities() async throws -> [WebsiteAppEntity] {
 			await allEntities()
 		}
 
+		/// 按实体 ID 查找网站。
 		func entities(for identifiers: [WebsiteAppEntity.ID]) async throws -> [WebsiteAppEntity] {
 			await allEntities().filter { identifiers.contains($0.id) }
 		}
 
+		/// 按标题或 URL 模糊搜索网站。
 		func entities(matching query: String) async throws -> [WebsiteAppEntity] {
 			await allEntities().filter {
 				$0.title.localizedCaseInsensitiveContains(query)
@@ -288,6 +318,7 @@ extension WebsiteAppEntity {
 	}
 }
 
+/// 在快捷指令冷启动主 App 时保持应用运行。
 func ensureRunning() {
 	// It's `prohibited` if the app was not already launched.
 	// We activate it so that it will not quit right away if it was not already launched. (macOS 13.4)

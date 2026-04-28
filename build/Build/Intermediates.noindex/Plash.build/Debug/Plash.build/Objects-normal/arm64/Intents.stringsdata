@@ -1,0 +1,344 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/Intents.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "添加网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 6
+        }
+      },
+      {
+        "comment": "",
+        "key": "将网站添加到 Plash。\n\n返回添加的网站。",
+        "location": {
+          "startingColumn": 3,
+          "startingLine": 9
+        }
+      },
+      {
+        "comment": "",
+        "key": "添加的网站",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 14
+        }
+      },
+      {
+        "comment": "",
+        "key": "网址",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 17
+        }
+      },
+      {
+        "comment": "",
+        "key": "标题",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "删除网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "从 Plash 删除指定网站。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "网站",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置启用状态",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置 Plash 的启用状态。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "操作",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "切换",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "已启用",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "获取启用状态",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "返回 Plash 当前是否已启用。",
+        "location": {
+          "startingColumn": 3,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "启用状态",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "获取当前网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 128
+        }
+      },
+      {
+        "comment": "",
+        "key": "返回 Plash 当前网站。",
+        "location": {
+          "startingColumn": 3,
+          "startingLine": 131
+        }
+      },
+      {
+        "comment": "",
+        "key": "当前网站",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置当前网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 145
+        }
+      },
+      {
+        "comment": "",
+        "key": "将 Plash 当前网站设置为指定网站。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 147
+        }
+      },
+      {
+        "comment": "",
+        "key": "网站",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 149
+        }
+      },
+      {
+        "comment": "",
+        "key": "重新加载网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 167
+        }
+      },
+      {
+        "comment": "",
+        "key": "重新加载 Plash 当前网站。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "切换到下一个网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 182
+        }
+      },
+      {
+        "comment": "",
+        "key": "将 Plash 切换到列表中的下一个网站。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 184
+        }
+      },
+      {
+        "comment": "",
+        "key": "切换到上一个网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 197
+        }
+      },
+      {
+        "comment": "",
+        "key": "将 Plash 切换到列表中的上一个网站。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "切换到随机网站",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 212
+        }
+      },
+      {
+        "comment": "",
+        "key": "将 Plash 切换到列表中的随机网站。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 214
+        }
+      },
+      {
+        "comment": "",
+        "key": "切换浏览模式",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 227
+        }
+      },
+      {
+        "comment": "",
+        "key": "切换 Plash 的“浏览模式”。",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 229
+        }
+      },
+      {
+        "comment": "",
+        "key": "网站",
+        "location": {
+          "startingColumn": 68,
+          "startingLine": 242
+        }
+      },
+      {
+        "comment": "",
+        "key": "标题",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 248
+        }
+      },
+      {
+        "comment": "",
+        "key": "网址",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 251
+        }
+      },
+      {
+        "comment": "",
+        "key": "网址主机",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 254
+        }
+      },
+      {
+        "comment": "",
+        "key": "当前使用",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 257
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 273
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 274
+        }
+      },
+      {
+        "comment": "",
+        "key": "返回 Plash 中的网站。",
+        "location": {
+          "startingColumn": 4,
+          "startingLine": 292
+        }
+      },
+      {
+        "comment": "",
+        "key": "网站",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 293
+        }
+      }
+    ]
+  },
+  "version": 1
+}

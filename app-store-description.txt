@@ -1,72 +1,72 @@
-Make any website your desktop wallpaper.
+把任意网站变成你的桌面壁纸。
 
-This enables you to have a highly dynamic desktop wallpaper. You could display your favorite news site, Facebook feed, or a random beautiful scenery photo. The use-cases are limitless. You could even set an animated GIF as wallpaper. You can even add multiple websites and easily switch between them.
-
-
-■ Features
-
-- Show a remote or local website
-- Interact with the website (“Browsing Mode”)
-- Automatically reload the website at a custom interval
-- Add multiple websites
-- Show the website on a different display
-- Invert website colors (fake dark mode)
-- Add custom CSS and JavaScript to the website
-- Lower the opacity
-- Transparent background
-	If the website doesn't have a background color, your system wallpaper will show through.
-- Automatically deactivate while on battery
-- Audio is muted
-- Single image will be aspect-filled to your screen
-- Hide menu bar icon
-- Shortcuts support
-- Scriptable (see the Plash website)
-- Share extension
-
-Note: Support for multiple displays is currently limited to the ability to choose which display to show the website on. Support for setting a separate website for each display is planned.
+Plash 可以让你拥有高度动态的桌面壁纸。你可以显示喜欢的新闻网站、社交动态，或随机的风景照片。使用场景几乎没有限制，甚至可以把动画 GIF 设置为壁纸。你还可以添加多个网站，并在它们之间轻松切换。
 
 
-■ Example use-cases
+■ 功能
 
-- Bing Photo of the Day
-	Read more: https://github.com/sindresorhus/plash-bing-photo-of-the-day
-- Random street view image
+- 显示远程或本地网站
+- 与网站交互（“浏览模式”）
+- 按自定义间隔自动重新加载网站
+- 添加多个网站
+- 在一个显示器或所有已连接的显示器上显示网站
+- 反转网站颜色（伪深色模式）
+- 为网站添加自定义 CSS 和 JavaScript
+- 降低不透明度
+- 透明背景
+	如果网站没有背景色，系统壁纸会透出来。
+- 使用电池时自动停用
+- 默认静音
+- 单张图片会按比例填满屏幕
+- 隐藏菜单栏图标
+- 支持快捷指令
+- 支持脚本控制（请参阅 Plash 官网）
+- 分享扩展
+
+注意：Plash 现在可以在单个显示器或所有已连接的显示器上显示同一个网站。为每个显示器单独设置不同网站的功能仍在计划中。
+
+
+■ 示例用途
+
+- Bing 每日图片
+	了解更多：https://github.com/sindresorhus/plash-bing-photo-of-the-day
+- 随机街景图片
 	https://randomstreetview.com/#slideshow
-- Calendar
-- Personal stats
-- Random color
+- 日历
+- 个人数据面板
+- 随机颜色
 	https://www.color.pizza
 
 
-■ Tips
+■ 使用技巧
 
-‣ Browsing mode
+‣ 浏览模式
 
-You can interact with the website by enabling “Browsing Mode”. When in this mode, you can right-click to be able to go back/forward, reload, and zoom in the page contents (the zoom level is saved). You can also pinch to magnify. This is different from zooming the page contents in that it will zoom in to a specific part of the page instead of just enlarging everything.
+启用“浏览模式”后，你可以与网站交互。在此模式下，可以右键返回/前进、重新加载，并放大页面内容（缩放级别会被保存）。你也可以通过双指捏合放大。这不同于普通页面缩放，它会放大页面中的特定区域，而不是简单放大所有内容。
 
-Plash injects a CSS class named “plash-is-browsing-mode” on the “html” element while browsing mode is active. You could use this class to customize the website for browsing mode.
+浏览模式启用时，Plash 会向 “html” 元素注入名为 “plash-is-browsing-mode” 的 CSS 类。你可以使用这个类为浏览模式定制网站样式。
 
-If clicking a link opens it in a new window, you can hold the Option key while clicking the link to open it in the main Plash window.
+如果点击链接会在新窗口中打开，你可以按住 Option 键点击链接，让它在 Plash 主窗口中打开。
 
-‣ Zoom in website
+‣ 放大网站
 
-To zoom in the website, activate “Browsing Mode”, right-click the website, and then select “Zoom In”.
+要放大网站，请启用“浏览模式”，右键点击网站，然后选择“放大”。
 
-‣ URL placeholders for screen width and height
+‣ 用于屏幕宽高的 URL 占位符
 
-Use `[[screenWidth]]` and `[[screenHeight]]` in any URL and Plash will substitute the right values for you. For example, `https://source.unsplash.com/random/[[screenWidth]]x[[screenHeight]]?puppy`.
-
-
-If you have some cool use-case you want to share or some other feedback, please do send me an email through the “Send Feedback” button in the app.
+你可以在任意 URL 中使用 `[[screenWidth]]` 和 `[[screenHeight]]`，Plash 会自动替换为正确的值。例如：`https://source.unsplash.com/random/[[screenWidth]]x[[screenHeight]]?puppy`。
 
 
-■ FAQ
-
-‣ How can I switch to a specific website with a keyboard shortcut?
-
-Make a shortcut in the Shortcuts app that uses the “Set Current Website” action and then set a keyboard shortcut for the shortcut.
+如果你有很好的使用场景想分享，或有其他反馈，请通过 App 中的“发送反馈”按钮给我发邮件。
 
 
-■ Support
+■ 常见问题
 
-Click the “Send Feedback” button in the app.
+‣ 如何用键盘快捷键切换到指定网站？
+
+在“快捷指令”App 中创建一个使用“设置当前网站”动作的快捷指令，然后为该快捷指令设置键盘快捷键。
+
+
+■ 支持
+
+点按 App 中的“发送反馈”按钮。

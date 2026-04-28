@@ -1,0 +1,26 @@
+{
+  "version" : 2,
+  "source" : "ExtractedAppShortcutsMetadata",
+  "tables" : {
+    "Localizable" : [
+      {
+        "key" : "${shouldToggle} Plash"
+      },
+      {
+        "key" : "${shouldToggle} Plash ${isEnabled}"
+      },
+      {
+        "key" : "删除网站 ${websites}"
+      },
+      {
+        "key" : "将 ${url} 添加到 Plash"
+      },
+      {
+        "key" : "将当前网站设为 ${website}"
+      },
+      {
+        "key" : "获取 Plash 当前启用状态"
+      }
+    ]
+  }
+}

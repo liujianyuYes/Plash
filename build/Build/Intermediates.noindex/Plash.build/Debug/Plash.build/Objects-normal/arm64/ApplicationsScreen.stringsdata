@@ -1,0 +1,88 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/ApplicationsScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "没有应用",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "能力",
+        "location": {
+          "startingColumn": 12,
+          "startingLine": 157
+        }
+      },
+      {
+        "comment": "",
+        "key": "组件",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 164
+        }
+      },
+      {
+        "comment": "",
+        "key": "后台任务",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 177
+        }
+      },
+      {
+        "comment": "",
+        "key": "设置",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 188
+        }
+      },
+      {
+        "comment": "",
+        "key": "存储",
+        "location": {
+          "startingColumn": 12,
+          "startingLine": 201
+        }
+      },
+      {
+        "comment": "",
+        "key": "启用",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 151
+        }
+      },
+      {
+        "comment": "",
+        "key": "版本 %@",
+        "location": {
+          "startingColumn": 12,
+          "startingLine": 144
+        }
+      },
+      {
+        "comment": "",
+        "key": "清除应用数据",
+        "location": {
+          "startingColumn": 12,
+          "startingLine": 203
+        }
+      }
+    ]
+  },
+  "version": 1
+}

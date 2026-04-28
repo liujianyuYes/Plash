@@ -1,0 +1,184 @@
+{
+  "source": "/Users/liujianyu/Development/IdeaProjects/Plash/Plash/AddWebsiteScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "高级",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "保留",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "不保留",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 88
+        }
+      },
+      {
+        "comment": "",
+        "key": "取消",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 92
+        }
+      },
+      {
+        "comment": "",
+        "key": "还原",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 97
+        }
+      },
+      {
+        "comment": "",
+        "key": "取消",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 104
+        }
+      },
+      {
+        "comment": "",
+        "key": "完成",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "添加",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "更多灵感",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 137
+        }
+      },
+      {
+        "comment": "",
+        "key": "你可以例如",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 130
+        }
+      },
+      {
+        "comment": "",
+        "key": "显示时间。",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 131
+        }
+      },
+      {
+        "comment": "",
+        "key": "网址",
+        "location": {
+          "startingColumn": 14,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "标题",
+        "location": {
+          "startingColumn": 14,
+          "startingLine": 188
+        }
+      },
+      {
+        "comment": "",
+        "key": "本地网站…",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "为没有原生深色模式的网站创建伪深色模式，方法是反转网站的所有颜色。",
+        "location": {
+          "startingColumn": 10,
+          "startingLine": 219
+        }
+      },
+      {
+        "comment": "",
+        "key": "使用打印样式",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 220
+        }
+      },
+      {
+        "comment": "",
+        "key": "如果网站提供打印样式（“@media print”），强制使用它。有些网站的打印版更简洁，例如 Google 日历。",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 221
+        }
+      },
+      {
+        "comment": "",
+        "key": "CSS",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 241
+        }
+      },
+      {
+        "comment": "",
+        "key": "JavaScript",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 262
+        }
+      },
+      {
+        "comment": "",
+        "key": "CSS",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 225
+        }
+      },
+      {
+        "comment": "",
+        "key": "JavaScript",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 246
+        }
+      },
+      {
+        "comment": "",
+        "key": "允许自签名证书",
+        "location": {
+          "startingColumn": 11,
+          "startingLine": 266
+        }
+      }
+    ]
+  },
+  "version": 1
+}

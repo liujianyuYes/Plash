@@ -1,0 +1,24 @@
+Target dependency graph (11 targets)
+Target 'Plash' in project 'Plash'
+➜ Explicit dependency on target 'Share Extension' in project 'Plash'
+➜ Explicit dependency on target 'Defaults' in project 'Defaults'
+➜ Explicit dependency on target 'KeyboardShortcuts' in project 'KeyboardShortcuts'
+➜ Explicit dependency on target 'LaunchAtLogin' in project 'LaunchAtLogin'
+➜ Explicit dependency on target 'Sentry' in project 'Sentry'
+Target 'Sentry' in project 'Sentry' (no dependencies)
+Target 'LaunchAtLogin' in project 'LaunchAtLogin'
+➜ Explicit dependency on target 'LaunchAtLogin' in project 'LaunchAtLogin'
+Target 'LaunchAtLogin' in project 'LaunchAtLogin' (no dependencies)
+Target 'KeyboardShortcuts' in project 'KeyboardShortcuts'
+➜ Explicit dependency on target 'KeyboardShortcuts' in project 'KeyboardShortcuts'
+➜ Explicit dependency on target 'KeyboardShortcuts_KeyboardShortcuts' in project 'KeyboardShortcuts'
+Target 'KeyboardShortcuts' in project 'KeyboardShortcuts'
+➜ Explicit dependency on target 'KeyboardShortcuts_KeyboardShortcuts' in project 'KeyboardShortcuts'
+Target 'KeyboardShortcuts_KeyboardShortcuts' in project 'KeyboardShortcuts' (no dependencies)
+Target 'Defaults' in project 'Defaults'
+➜ Explicit dependency on target 'Defaults' in project 'Defaults'
+➜ Explicit dependency on target 'Defaults_Defaults' in project 'Defaults'
+Target 'Defaults' in project 'Defaults'
+➜ Explicit dependency on target 'Defaults_Defaults' in project 'Defaults'
+Target 'Defaults_Defaults' in project 'Defaults' (no dependencies)
+Target 'Share Extension' in project 'Plash' (no dependencies)
